@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fashion Homepage</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
@@ -68,22 +69,30 @@
     <main class="main">
       <!-- Section Banner -->
       <section class="section banner">
-        <article class="banner__box">
-          <h2 class="heading-2 heading-2--secondary">
-            Subscribe to our newsletter andreceive exclusive offers every week
-          </h2>
-          <a href="#" class="btn btn--primary">Show collection</a>
-        </article>
-        <article class="banner__box">
-          <h2 class="heading-2 heading-2--secondary">Basic t-shirts $29,99</h2>
-          <a href="#" class="btn btn--primary">More details</a>
-        </article>
-        <article class="banner__box">
-          <div class="badge">
-            <p class="badge__content">-30%</p>
+        <article class="banner__box banner__box--1">
+          <div class="banner__content">
+            <h2 class="heading-2 heading-2--secondary">
+              New arrivalsare now in!
+            </h2>
+            <a href="#" class="btn btn--primary banner__btn">Show collection</a>
           </div>
-          <h2 class="heading-2 heading-2--secondary">Sale this summer</h2>
-          <a href="#" class="btn btn--primary">View all</a>
+        </article>
+        <article class="banner__box banner__box--2">
+          <div class="banner__content">
+            <h2 class="heading-2 heading-2--secondary">
+              Basic t-shirts $29,99
+            </h2>
+            <a href="#" class="btn btn--primary banner__btn">More details</a>
+          </div>
+        </article>
+        <article class="banner__box banner__box--3">
+          <div class="banner__badge badge">
+            <p class="badge__content">-50%</p>
+          </div>
+          <div class="banner__content">
+            <h2 class="heading-2 heading-2--secondary">Sale this summer</h2>
+            <a href="#" class="btn btn--primary banner__btn">View all</a>
+          </div>
         </article>
       </section>
 
@@ -91,36 +100,52 @@
       <section class="section products">
         <div class="products__heading">
           <h2 class="heading-2">Selected just for you</h2>
-          <a href="#" class="btn btn--primary">Show more</a>
+          <a href="#" class="btn btn--outline">Show more</a>
         </div>
         <div class="products__container">
           <article class="products__card">
-            <img class="products__img" alt="Product image" src="" />
+            <img
+              class="products__img"
+              alt="Product image"
+              src="./assets/product-1.jpg"
+            />
             <h5 class="products__name">T-Shirt Summer Vibes</h5>
             <div class="products__prices">
               <p class="products__price products__price--discount">$89.99</p>
               <p class="products__price products__price--original">$119.99</p>
             </div>
-            <div class="badge">
+            <div class="products__badge badge">
               <p class="badge__content">-30%</p>
             </div>
           </article>
           <article class="products__card">
-            <img class="products__img" alt="Product image" src="" />
+            <img
+              class="products__img"
+              alt="Product image"
+              src="./assets/product-2.jpg"
+            />
             <h5 class="products__name">Loose Knit 3/4 Sleeve</h5>
             <div class="products__prices">
               <p class="products__price">$119.99</p>
             </div>
           </article>
           <article class="products__card">
-            <img class="products__img" alt="Product image" src="" />
+            <img
+              class="products__img"
+              alt="Product image"
+              src="./assets/product-3.jpg"
+            />
             <h5 class="products__name">Basic Slim Fit T-Shirt</h5>
             <div class="products__prices">
               <p class="products__price">$79.99</p>
             </div>
           </article>
           <article class="products__card">
-            <img class="products__img" alt="Product image" src="" />
+            <img
+              class="products__img"
+              alt="Product image"
+              src="./assets/product-4.jpg"
+            />
             <h5 class="products__name">Loose Textured T-Shirt</h5>
             <div class="products__prices">
               <p class="products__price">$119.99</p>
@@ -132,39 +157,65 @@
       <!-- Section Why should you choose us? -->
       <section class="section features">
         <h2 class="heading-2 text-center">Why should you choose us?</h2>
-        <div class="features__container">
-          <article class="features__card">
-            <img src="" alt="Features icon" class="features__icon" />
-            <h3 class="features__heading">Free Shipping</h3>
-            <p class="features__content">
-              All purchases over $199 are eligible forfree shipping via USPS
-              First Class Mail.
-            </p>
-          </article>
-          <article class="features__card">
-            <img src="" alt="Features icon" class="features__icon" />
-            <h3 class="features__heading">Easy Payments</h3>
-            <p class="features__content">
-              All payments are processed instantlyover a secure payment
-              protocol.
-            </p>
-          </article>
-          <article class="features__card">
-            <img src="" alt="Features icon" class="features__icon" />
-            <h3 class="features__heading">Money-Back Guarantee</h3>
-            <p class="features__content">
-              If an item arrived damaged or you'vechanged your mind, you can
-              send itback for a full refund.
-            </p>
-          </article>
-          <article class="features__card">
-            <img src="" alt="Features icon" class="features__icon" />
-            <h3 class="features__heading">Finest Quality</h3>
-            <p class="features__content">
-              Designed to last, each of our products hasbeen crafted with the
-              finest materials.
-            </p>
-          </article>
+        <div class="row">
+          <div class="features__container">
+            <article class="features__card">
+              <div class="features__bg">
+                <img
+                  src="./assets/feature-1.svg"
+                  alt="Features icon"
+                  class="features__icon"
+                />
+              </div>
+              <h3 class="features__heading">Free Shipping</h3>
+              <p class="features__content">
+                All purchases over $199 are eligible forfree shipping via USPS
+                First Class Mail.
+              </p>
+            </article>
+            <article class="features__card">
+              <div class="features__bg">
+                <img
+                  src="./assets/feature-2.svg"
+                  alt="Features icon"
+                  class="features__icon"
+                />
+              </div>
+              <h3 class="features__heading">Easy Payments</h3>
+              <p class="features__content">
+                All payments are processed instantlyover a secure payment
+                protocol.
+              </p>
+            </article>
+            <article class="features__card">
+              <div class="features__bg">
+                <img
+                  src="./assets/feature-3.svg"
+                  alt="Features icon"
+                  class="features__icon"
+                />
+              </div>
+              <h3 class="features__heading">Money-Back Guarantee</h3>
+              <p class="features__content">
+                If an item arrived damaged or you'vechanged your mind, you can
+                send itback for a full refund.
+              </p>
+            </article>
+            <article class="features__card">
+              <div class="features__bg">
+                <img
+                  src="./assets/feature-4.svg"
+                  alt="Features icon"
+                  class="features__icon"
+                />
+              </div>
+              <h3 class="features__heading">Finest Quality</h3>
+              <p class="features__content">
+                Designed to last, each of our products hasbeen crafted with the
+                finest materials.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -173,32 +224,48 @@
         <h2 class="heading-2 text-center">Products in today</h2>
         <div class="products__container">
           <article class="products__card">
-            <img class="products__img" alt="Product image" src="" />
+            <img
+              class="products__img"
+              alt="Product image"
+              src="./assets/product-1.jpg"
+            />
             <h5 class="products__name">T-Shirt Summer Vibes</h5>
             <div class="products__prices">
               <p class="products__price products__price--discount">$89.99</p>
               <p class="products__price products__price--original">$119.99</p>
             </div>
-            <div class="badge">
+            <div class="products__badge badge">
               <p class="badge__content">-30%</p>
             </div>
           </article>
           <article class="products__card">
-            <img class="products__img" alt="Product image" src="" />
+            <img
+              class="products__img"
+              alt="Product image"
+              src="./assets/product-2.jpg"
+            />
             <h5 class="products__name">Loose Knit 3/4 Sleeve</h5>
             <div class="products__prices">
               <p class="products__price">$119.99</p>
             </div>
           </article>
           <article class="products__card">
-            <img class="products__img" alt="Product image" src="" />
+            <img
+              class="products__img"
+              alt="Product image"
+              src="./assets/product-3.jpg"
+            />
             <h5 class="products__name">Basic Slim Fit T-Shirt</h5>
             <div class="products__prices">
               <p class="products__price">$79.99</p>
             </div>
           </article>
           <article class="products__card">
-            <img class="products__img" alt="Product image" src="" />
+            <img
+              class="products__img"
+              alt="Product image"
+              src="./assets/product-4.jpg"
+            />
             <h5 class="products__name">Loose Textured T-Shirt</h5>
             <div class="products__prices">
               <p class="products__price">$119.99</p>
@@ -209,18 +276,20 @@
 
       <!-- Section Newsletter -->
       <section class="section newsletter">
-        <div class="newsletter__container">
-          <h2 class="heading-2 heading-2--secondary">
-            Subscribe to our newsletter andreceive exclusive offers every week
-          </h2>
-          <form class="newsletter__form">
-            <input
-              class="newsletter__input"
-              type="text"
-              placeholder="Enter your email"
-            />
-            <button class="btn btn--secondary">Subscribe</button>
-          </form>
+        <div class="row">
+          <div class="newsletter__container">
+            <h2 class="heading-2 heading-2--secondary">
+              Subscribe to our newsletter andreceive exclusive offers every week
+            </h2>
+            <form class="newsletter__form">
+              <input
+                class="newsletter__input"
+                type="text"
+                placeholder="Enter your email"
+              />
+              <button class="btn btn--secondary">Subscribe</button>
+            </form>
+          </div>
         </div>
       </section>
     </main>
