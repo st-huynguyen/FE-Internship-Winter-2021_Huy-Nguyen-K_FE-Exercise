@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-shop</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- Header -->
@@ -82,7 +83,7 @@
         <div class="banner-benefit">
           <div class="container">
             <ul class="row">
-              <li class="col-3">
+              <li class="col-4">
                 <div class="card card-banner-benefit">
                   <img
                     class="card-img"
@@ -95,7 +96,7 @@
                   </div>
                 </div>
               </li>
-              <li class="col-3">
+              <li class="col-4">
                 <div class="card card-banner-benefit">
                   <img
                     class="card-img"
@@ -110,7 +111,7 @@
                   </div>
                 </div>
               </li>
-              <li class="col-3">
+              <li class="col-4">
                 <div class="card card-banner-benefit">
                   <img
                     class="card-img"
@@ -132,39 +133,39 @@
       <!-- Section Collection -->
       <section class="section-collection">
         <div class="container">
-          <ul class="row">
+          <ul class="row gx-5">
             <li class="col-6">
               <div class="card card-collection">
-                <div class="badge"><span>-30%</span></div>
-                <h3 class="card-name">New arrivalsare now in!</h3>
-                <a class="btn btn-white" href="#">Show collection</a>
                 <img
                   class="card-img collection-img"
                   src="./assets/collection-1.jpg"
                   alt="New arrivalsare now in!"
                 />
+                <h3 class="card-name">New arrivalsare now in!</h3>
+                <a class="btn btn-white" href="#">Show collection</a>
               </div>
             </li>
-            <li class="col-3">
+            <li class="col">
               <div class="card card-collection">
-                <h3 class="card-name">Basic t-shirts $29,99</h3>
-                <a class="btn btn-white" href="#">More details</a>
                 <img
                   class="card-img collection-img"
                   src="./assets/collection-2.jpg"
                   alt="Basic t-shirts $29,99"
                 />
+                <h3 class="card-name">Basic t-shirts $29,99</h3>
+                <a class="btn btn-white" href="#">More details</a>
               </div>
             </li>
-            <li class="col-3">
+            <li class="col">
               <div class="card card-collection">
-                <h3 class="card-name">Sale this summer</h3>
-                <a class="btn btn-white" href="#">View all</a>
                 <img
                   class="card-img collection-img"
                   src="./assets/collection-3.jpg"
                   alt="Sale this summer"
                 />
+                <div class="badge"><span>-50%</span></div>
+                <h3 class="card-name">Sale this summer</h3>
+                <a class="btn btn-white" href="#">View all</a>
               </div>
             </li>
           </ul>
@@ -174,7 +175,7 @@
       <section class="section-product">
         <div class="container">
           <h3 class="section-title">Selected just for you</h3>
-          <ul class="row">
+          <ul class="row gx-5 my-10">
             <li class="col">
               <div class="card card-product">
                 <img
@@ -233,12 +234,12 @@
       <section class="section-benefit">
         <div class="container">
           <h3 class="section-title text-center">Why should you choose us?</h3>
-          <ul class="row">
+          <ul class="row gx-12 my-10">
             <li class="col">
               <div class="card card-benefit">
                 <img
                   class="card-img benefit-icon"
-                  src="./assets/benefit-1.svg"
+                  src="./assets/benefit-1.png"
                   alt="Free Shipping"
                 />
                 <h4 class="card-name benefit-name">Free Shipping</h4>
@@ -252,7 +253,7 @@
               <div class="card card-benefit">
                 <img
                   class="card-img benefit-icon"
-                  src="./assets/benefit-2.svg"
+                  src="./assets/benefit-2.png"
                   alt="Easy Payments"
                 />
                 <h4 class="card-name benefit-name">Easy Payments</h4>
@@ -266,7 +267,7 @@
               <div class="card card-benefit">
                 <img
                   class="card-img benefit-icon"
-                  src="./assets/benefit-3.svg"
+                  src="./assets/benefit-3.png"
                   alt="Money-Back Guarantee"
                 />
                 <h4 class="card-name benefit-name">Money-Back Guarantee</h4>
@@ -280,7 +281,7 @@
               <div class="card card-benefit">
                 <img
                   class="card-img benefit-icon"
-                  src="./assets/benefit-4.svg"
+                  src="./assets/benefit-4.png"
                   alt="Free Shipping"
                 />
                 <h4 class="card-name benefit-name">Finest Quality</h4>
@@ -296,8 +297,8 @@
       <!-- Section Products in today -->
       <section class="section-product">
         <div class="container">
-          <h3 class="section-title">Products in today</h3>
-          <ul class="row">
+          <h3 class="section-title text-center">Products in today</h3>
+          <ul class="row gx-5 my-10">
             <li class="col">
               <div class="card card-product">
                 <img
@@ -352,9 +353,9 @@
       <!-- Section Newsletter -->
       <section class="section-newsletter">
         <div class="container">
-          <div class="row">
+          <div class="row my-10">
             <div class="col">
-              <p class="section-title text-xl">
+              <p class="section-title">
                 Subscribe to our newsletter andreceive exclusive offers every
                 week
               </p>
@@ -376,7 +377,7 @@
     <!-- Footer -->
     <footer>
       <div class="container">
-        <div class="row">
+        <div class="row py-10">
           <div class="col-5">
             <a class="footer-logo" href="#">
               <img
@@ -390,7 +391,7 @@
               in between – but most importantly, for the fashionable
             </p>
             <div class="footer-socials">
-              <ul class="footer-socials-list">
+              <ul class="row gx-8">
                 <li class="footer-socials-item">
                   <a class="footer-socials-link" href="#">
                     <img

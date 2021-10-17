@@ -60,13 +60,12 @@ a {
   font-weight: 300;
 }
 
-.section {
-  padding: 5rem 0;
-}
+/* Container row col */
 
 .container {
   max-width: 114rem;
   margin: 0 auto;
+  position: relative;
 }
 
 .row {
@@ -77,8 +76,34 @@ a {
   flex: 1;
 }
 
+.col-4 {
+  flex: 0 0 auto;
+  width: calc(33% - 10px);
+}
+
+.col-5 {
+  flex: 0 0 auto;
+  width: 41.66666667%;
+}
+
+.col-6 {
+  flex: 0 0 auto;
+  width: calc(50% - 10px);
+}
+
+.col-7 {
+  flex: 0 0 auto;
+  width: 58.33333333%;
+}
+
+/* Gap padding margin */
+
 .gx-5 {
   column-gap: 20px;
+}
+
+.gx-8 {
+  column-gap: 32px;
 }
 
 .gx-12 {
@@ -117,6 +142,8 @@ a {
   padding-bottom: 48px;
 }
 
+/* Form */
+
 .form {
   width: 100%;
 }
@@ -129,56 +156,43 @@ a {
   border: 0;
 }
 
-.card-price,
-.card-price-discount,
-.card-price-original {
+/* Price */
+
+.price {
   font-size: 2rem;
   font-weight: 400;
-}
-
-.card-price-discount {
-  color: var(--red-color);
-}
-
-.card-price-original {
-  color: var(--gray-100-color);
-}
-
-.card.card-product .card-name {
-  font-size: 1.6rem;
-  font-weight: 300;
-}
-
-.card.card-benefit .card-name {
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-
-.card.card-benefit .card-content {
-  font-size: 1.4rem;
-  font-weight: 300;
-  color: var(--gray-500-color);
-}
-
-.card.card-benefit .benefit-icon {
-  width: 6.8rem;
-  background-color: ivory;
-}
-
-.justify-content-space-between {
   display: flex;
   justify-content: space-between;
 }
 
-.align-items-center {
-  display: flex;
-  align-items: center;
+.new-price {
+  color: var(--red-color);
+}
+
+.old-price {
+  color: var(--gray-100-color);
+}
+
+/* Section */
+
+section {
+  padding: 4rem 0;
 }
 
 .section-title {
   font-size: 3.2rem;
   font-weight: 300;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
+
+.section-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* List group */
 
 .list-group-item {
   margin: 1.2rem 0;
@@ -192,6 +206,8 @@ a {
   color: var(--white-color);
   font-weight: 300;
 }
+
+/* Button */
 
 .btn,
 .btn:link,
@@ -215,8 +231,16 @@ a {
   background-color: var(--primary-color);
 }
 
+.btn-white {
+  background-color: var(--white-color);
+}
+
+/* Badge */
+
 .badge {
   position: absolute;
+  top: 2rem;
+  left: 2rem;
   background-color: var(--red-color);
   padding: 0.7rem 1.4rem;
   border-radius: 100rem;
@@ -231,27 +255,132 @@ a {
   text-align: center;
 }
 
-.text-white {
+/* Section banner */
+.section-banner {
+  background-image: url("./assets/hero-img.jpg"),
+    linear-gradient(150deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  background-blend-mode: overlay;
+  background-size: cover;
+  height: 80rem;
+  position: relative;
+}
+
+.banner-benefit {
+  position: absolute;
+  bottom: 0;
+  background-color: var(--white-color);
+  padding: 2rem 5rem;
+  border-radius: 0 5rem 0 0;
+}
+
+.card.card-banner-benefit {
+  display: flex;
+  gap: 2rem;
+}
+
+.card.card-banner-benefit .card-img {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 1rem;
+}
+
+.card.card-banner-benefit .card-name {
+  font-size: 1.6rem;
+}
+
+.card.card-banner-benefit .card-content {
+  font-size: 1.2rem;
+  color: var(--gray-400-color);
+}
+
+/* Section collection */
+
+.card.card-collection {
+  position: relative;
+}
+
+.card.card-collection .card-name {
+  position: absolute;
+  top: 50%;
+  left: 4rem;
   color: var(--white-color);
-}
-
-.text-xl {
   font-size: 2.4rem;
+  font-weight: 300;
+  max-width: 70%;
 }
 
-.bg-gray-50 {
+.card.card-collection .btn {
+  position: absolute;
+  bottom: 4rem;
+  left: 4rem;
+}
+
+.card.card-collection .card-img {
+  filter: brightness(70%);
+  z-index: -100;
+}
+
+.card-collection .badge {
+  top: 40%;
+  left: 4rem;
+}
+
+/* Section product */
+
+.card.card-product {
+  position: relative;
+}
+
+.card.card-product .card-name {
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin-top: 1.2rem;
+}
+
+/* Section benefit */
+
+.section-benefit {
   background-color: var(--gray-50-color);
 }
 
-.bg-primary {
-  background-color: var(--primary-color);
+.card.card-benefit .card-name {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 1rem 0;
 }
 
-.newsletter {
+.card.card-benefit .card-content {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--gray-500-color);
+}
+
+.card.card-benefit .benefit-icon {
+  width: 6.8rem;
+  background-color: ivory;
+}
+
+.card.card-benefit .card-img {
+  border-radius: 1rem;
+  margin: 2rem 0;
+}
+
+/* Newsletter section */
+
+.section-newsletter {
   background-image: url("./assets/newsletter.jpg"),
     linear-gradient(150deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
   background-blend-mode: overlay;
   background-size: cover;
+}
+
+.section-newsletter .row {
+  align-items: center;
+}
+
+.section-newsletter .section-title {
+  color: var(--white-color);
+  font-size: 2.4rem;
 }
 
 .newsletter-form {
@@ -260,17 +389,28 @@ a {
   width: 100%;
 }
 
-.newsletter-input {
+.newsletter-form .form-input {
   width: 100%;
 }
 
-.newsletter-btn {
-  margin-left: auto;
-}
+/* Footer */
 
-.footer {
+footer {
+  background-color: var(--primary-color);
   color: var(--white-color);
   font-size: 1.4rem;
+}
+
+.footer-copyright {
+  display: block;
+  padding: 2.4rem 0;
+  border-top: 1px solid var(--white-color);
+  text-align: center;
+  font-weight: 300;
+}
+
+.footer-socials-item {
+  width: 1.6rem;
 }
 
 .footer-logo-img {
@@ -279,30 +419,11 @@ a {
 
 .footer-about {
   max-width: 38rem;
+  margin: 2rem 0 4rem;
 }
 
 .footer-list {
   display: flex;
-}
-
-.footer-copy {
-  padding: 2.4rem 0;
-  border-top: 1px solid var(--white-color);
-}
-
-.footer-copy-text {
-  text-align: center;
-  font-weight: 300;
-}
-
-.footer-socials-list {
-  display: flex;
-  align-items: center;
-  gap: 3.6rem;
-}
-
-.footer-socials-item {
-  width: 1.8rem;
 }
 
 /* Section banner */
