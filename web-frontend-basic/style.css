@@ -39,7 +39,7 @@ body {
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
 }
 
 button {
@@ -64,7 +64,7 @@ a {
 /* Form */
 
 .form {
-  width: 100%;
+  max-width: 100%;
 }
 
 .form-input {
@@ -223,7 +223,6 @@ header {
   background-blend-mode: overlay;
   background-size: cover;
   background-position: center;
-  height: 90vh;
   position: relative;
   margin-bottom: 5rem;
   box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.2);
@@ -231,8 +230,7 @@ header {
 }
 
 .section-banner .banner-heading-box {
-  max-width: 50rem;
-  padding: 15rem 0 0 8rem;
+  padding: 15rem 0 25rem 8rem;
 }
 
 .section-banner .banner-heading {
@@ -243,6 +241,7 @@ header {
 }
 
 .section-banner .banner-heading span {
+  display: block;
   color: var(--primary-color);
 }
 
@@ -277,16 +276,17 @@ header {
 
 /* Benefit on banner section */
 
-.section-banner .container::before {
-  z-index: -100;
-  content: "";
+.banner-benefit::before {
   background-color: var(--white-color);
-  width: 50%;
-  height: 14rem;
-  display: block;
+  content: "";
+  z-index: -100;
   position: absolute;
-  left: 0;
+  top: 0;
   bottom: 0;
+  right: 0;
+  left: -100vw;
+  display: block;
+  border-radius: 0 5rem 0 0;
 }
 
 .section-banner .banner-benefit {
@@ -295,7 +295,6 @@ header {
   background-color: var(--white-color);
   padding: 4rem 8rem;
   border-radius: 0 5rem 0 0;
-  height: 14rem;
 }
 
 .card.card-banner-benefit {
