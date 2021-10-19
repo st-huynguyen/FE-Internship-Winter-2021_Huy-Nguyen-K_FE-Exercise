@@ -1,0 +1,24 @@
+@use "sass:map";
+
+.badge {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  background-color: map.get($colors, "red");
+  padding: 0.4rem 1.2rem;
+  border-radius: 100rem;
+  @media only screen and (max-width: map.get($breakpoints, "small")) {
+    top: 1.2rem;
+    left: 1.2rem;
+    padding: 0rem 1.2rem;
+  }
+}
+
+.badge span {
+  color: map.get($colors, "white");
+  font-weight: 600;
+  font-size: 1.2rem;
+  @media only screen and (max-width: map.get($breakpoints, "small")) {
+    font-size: 1rem;
+  }
+}

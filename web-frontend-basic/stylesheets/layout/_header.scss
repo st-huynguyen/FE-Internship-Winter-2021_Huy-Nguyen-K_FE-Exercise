@@ -1,0 +1,36 @@
+@use "sass:map";
+
+header {
+  position: absolute;
+  width: 100%;
+  top: 4rem;
+  z-index: 100;
+  .navbar {
+    .navbar-logo-img {
+      width: 14rem;
+    }
+  }
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 8rem;
+    justify-content: center;
+    .nav-link:link,
+    .nav-link:visited {
+      color: map.get($colors, "primary");
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+  }
+  .nav-actions {
+    .nav-actions-list {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      justify-content: flex-end;
+    }
+    .btn-icon-img {
+      width: 2rem;
+    }
+  }
+}

@@ -141,6 +141,11 @@ table {
 html {
   font-size: 62.5%;
 }
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+}
 
 body {
   font-family: "Poppins", sans-serif;
@@ -172,6 +177,614 @@ a {
 ::placeholder {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
+}
+
+.badge {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  background-color: #ff0000;
+  padding: 0.4rem 1.2rem;
+  border-radius: 100rem;
+}
+@media only screen and (max-width: 480px) {
+  .badge {
+    top: 1.2rem;
+    left: 1.2rem;
+    padding: 0rem 1.2rem;
+  }
+}
+
+.badge span {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+@media only screen and (max-width: 480px) {
+  .badge span {
+    font-size: 1rem;
+  }
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: inline-block;
+  padding: 1.4rem 2.6rem;
+  border-radius: 10rem;
+  color: #333;
+}
+@media only screen and (max-width: 480px) {
+  .btn,
+.btn:link,
+.btn:visited {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+}
+
+.btn-outline:link,
+.btn-outline:visited {
+  border: 1px solid #c4c4c4;
+}
+@media only screen and (max-width: 480px) {
+  .btn-outline:link,
+.btn-outline:visited {
+    border: 0;
+    padding: 0.8rem;
+  }
+}
+
+.btn-primary {
+  background-color: #fbb03b;
+}
+
+.btn-white {
+  background-color: #fff;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 480px) {
+  .price {
+    font-size: 1.2rem;
+  }
+}
+.price.new-price {
+  color: #ff0000;
+}
+.price.old-price {
+  color: #cecece;
+}
+
+.card.card-banner-benefit {
+  display: flex;
+  gap: 2rem;
+}
+.card.card-banner-benefit .card-img {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 1rem;
+}
+.card.card-banner-benefit .card-name {
+  font-weight: 600;
+}
+.card.card-banner-benefit .card-content {
+  font-size: 1.2rem;
+  color: var(--gray-400-color);
+}
+.card.card-product {
+  position: relative;
+}
+.card.card-product .card-name {
+  font-weight: 300;
+  margin-top: 1.2rem;
+}
+@media only screen and (max-width: 480px) {
+  .card.card-product .card-name {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .card.card-product {
+    margin: 1rem auto;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .card.card-benefit {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+.card.card-benefit .card-name {
+  font-weight: 600;
+  margin: 1rem 0;
+}
+@media only screen and (max-width: 480px) {
+  .card.card-benefit .card-name {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-top: 0;
+  }
+}
+.card.card-benefit .card-content {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: #808080;
+}
+@media only screen and (max-width: 480px) {
+  .card.card-benefit .card-content {
+    max-width: 90%;
+    font-size: 1.2rem;
+  }
+}
+.card.card-benefit .card-img {
+  border-radius: 1rem;
+  margin: 2rem 0;
+}
+.card.card-benefit .benefit-icon {
+  width: 6.8rem;
+}
+@media only screen and (max-width: 480px) {
+  .card.card-benefit .benefit-icon {
+    width: 8rem;
+  }
+}
+.card.card-collection {
+  position: relative;
+}
+.card.card-collection .card-name {
+  position: absolute;
+  top: 50%;
+  left: 4rem;
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 300;
+  max-width: 70%;
+}
+.card.card-collection .btn {
+  position: absolute;
+  bottom: 4rem;
+  left: 4rem;
+}
+.card.card-collection .card-img {
+  filter: brightness(70%);
+  z-index: -100;
+}
+.card.card-collection .badge {
+  top: 40%;
+  left: 4rem;
+}
+
+.list-group-item {
+  margin: 1.2rem 0;
+}
+
+.list-group-title {
+  font-weight: 600;
+}
+@media only screen and (max-width: 480px) {
+  .list-group-title {
+    font-size: 2rem;
+  }
+}
+
+.list-group-link {
+  color: var(--white-color);
+  font-weight: 300;
+}
+@media only screen and (max-width: 480px) {
+  .list-group-link {
+    font-size: 1.8rem;
+  }
+}
+
+.form-input {
+  font-weight: 700;
+  display: inline-block;
+  padding: 1.4rem 2.6rem;
+  border-radius: 10rem;
+  border: 0;
+}
+
+.container {
+  max-width: 1170px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+@media only screen and (max-width: 480px) {
+  .row {
+    margin: 0 -5px;
+  }
+}
+
+.row > * {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 10px;
+}
+@media only screen and (max-width: 480px) {
+  .row > * {
+    padding: 0 5px;
+  }
+}
+
+.col {
+  flex: 1;
+}
+
+.col-1 {
+  flex: 0 0 auto;
+  width: 8.3333333333%;
+}
+
+.col-2 {
+  flex: 0 0 auto;
+  width: 16.6666666667%;
+}
+
+.col-3 {
+  flex: 0 0 auto;
+  width: 25%;
+}
+
+.col-4 {
+  flex: 0 0 auto;
+  width: 33.3333333333%;
+}
+
+.col-5 {
+  flex: 0 0 auto;
+  width: 41.6666666667%;
+}
+
+.col-6 {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+.col-7 {
+  flex: 0 0 auto;
+  width: 58.3333333333%;
+}
+
+.col-8 {
+  flex: 0 0 auto;
+  width: 66.6666666667%;
+}
+
+.col-9 {
+  flex: 0 0 auto;
+  width: 75%;
+}
+
+.col-10 {
+  flex: 0 0 auto;
+  width: 83.3333333333%;
+}
+
+.col-11 {
+  flex: 0 0 auto;
+  width: 91.6666666667%;
+}
+
+.col-12 {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+@media only screen and (max-width: 480px) {
+  .col-3 {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .col-4,
+.col-5,
+.col-6,
+.col-7 {
+    width: 100%;
+  }
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  top: 4rem;
+  z-index: 100;
+}
+header .navbar .navbar-logo-img {
+  width: 14rem;
+}
+header .nav-list {
+  display: flex;
+  align-items: center;
+  gap: 8rem;
+  justify-content: center;
+}
+header .nav-list .nav-link:link,
+header .nav-list .nav-link:visited {
+  color: #fbb03b;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+header .nav-actions .nav-actions-list {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: flex-end;
+}
+header .nav-actions .btn-icon-img {
+  width: 2rem;
+}
+
+footer {
+  background-color: #fbb03b;
+  color: #fff;
+  font-size: 1.4rem;
+}
+footer .footer-logo-img {
+  width: 14rem;
+}
+@media only screen and (max-width: 480px) {
+  footer .footer-logo-img {
+    width: 20rem;
+  }
+}
+footer .footer-about {
+  max-width: 38rem;
+  margin: 2rem 0 4rem;
+}
+@media only screen and (max-width: 480px) {
+  footer .footer-about {
+    font-size: 1.7rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  footer .footer-socials {
+    display: none;
+  }
+}
+footer .footer-socials-icon {
+  width: 1.6rem;
+  margin-right: 3rem;
+}
+footer .footer-list {
+  display: flex;
+}
+@media only screen and (max-width: 480px) {
+  footer .footer-list .col-4 {
+    margin-top: 2rem;
+  }
+}
+footer .footer-copyright {
+  display: block;
+  padding: 2.4rem 0;
+  border-top: 1px solid #fff;
+  text-align: center;
+  font-weight: 300;
+}
+@media only screen and (max-width: 480px) {
+  footer .footer-copyright {
+    font-size: 1.5rem;
+  }
+}
+
+section {
+  padding: 4rem 0;
+}
+@media only screen and (max-width: 480px) {
+  section {
+    padding: 2rem 0;
+  }
+}
+section .section-title {
+  font-size: 3.2rem;
+  font-weight: 300;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+@media only screen and (max-width: 480px) {
+  section .section-title {
+    font-size: 2.2rem;
+  }
+}
+section .section-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+@media only screen and (max-width: 480px) {
+  section .section-actions {
+    right: 10px;
+  }
+}
+
+.section-banner {
+  background-image: url("../assets/hero-img.jpg"), linear-gradient(150deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin-bottom: 5rem;
+  box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.2);
+  z-index: -100;
+}
+.section-banner .banner-heading-box {
+  padding: 15rem 0 25rem 8rem;
+}
+.section-banner .banner-heading {
+  font-size: 7.2rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+.section-banner .banner-heading span {
+  display: block;
+  color: #fbb03b;
+}
+.section-banner .section-actions {
+  position: relative;
+}
+.section-banner .banner-btn {
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+.section-banner .banner-btn::before {
+  content: "";
+  display: inline-block;
+  background: url("../assets/arrow.png");
+  background-repeat: no-repeat;
+  background-size: auto 1.25rem;
+  background-position: center center;
+  vertical-align: middle;
+  background-color: #fbb03b;
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 1.8rem;
+  margin-right: 2rem;
+  border-radius: 10rem;
+}
+.section-banner .banner-benefit {
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  padding: 4rem 8rem;
+  border-radius: 0 5rem 0 0;
+}
+.section-banner .banner-benefit::before {
+  background-color: #fff;
+  content: "";
+  z-index: -100;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: -100vw;
+  display: block;
+  border-radius: 0 5rem 0 0;
+}
+@media only screen and (max-width: 480px) {
+  .section-banner .banner-benefit {
+    display: none;
+  }
+}
+
+.section-product .container {
+  position: relative;
+}
+.section-product .section-actions {
+  right: 10px;
+}
+
+.section-benefit {
+  background-color: #f6f6f6;
+}
+@media only screen and (max-width: 480px) {
+  .section-benefit .col-3 {
+    width: 100%;
+  }
+}
+
+.section-newsletter {
+  background-image: url("../assets/newsletter.jpg"), linear-gradient(150deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-position: center;
+}
+.section-newsletter .row {
+  align-items: center;
+}
+@media only screen and (max-width: 480px) {
+  .section-newsletter .row {
+    flex-direction: column;
+  }
+}
+.section-newsletter .section-title {
+  color: #fff;
+  font-size: 2.4rem;
+}
+@media only screen and (max-width: 480px) {
+  .section-newsletter .section-title {
+    font-size: 1.7rem;
+    max-width: 25rem;
+  }
+}
+.section-newsletter .newsletter-form {
+  display: flex;
+  gap: 3rem;
+  width: 100%;
+}
+@media only screen and (max-width: 480px) {
+  .section-newsletter .newsletter-form {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.8rem;
+    margin: 2rem auto;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .section-newsletter .newsletter-form .btn {
+    font-size: 1.6rem;
+    padding: 1rem 3rem;
+  }
+}
+.section-newsletter .form-input {
+  width: 100%;
+}
+
+.my-2 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.my-5 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.my-10 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+
+.mt-12 {
+  margin-top: 48px;
+}
+
+.mb-12 {
+  margin-bottom: 48px;
+}
+
+.py-10 {
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 
 .text-center {

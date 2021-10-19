@@ -1,0 +1,20 @@
+@use "sass:map";
+
+.price {
+  font-size: 2rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+
+  @media only screen and (max-width: map.get($breakpoints, "small")) {
+    font-size: 1.2rem;
+  }
+
+  &.new-price {
+    color: map.get($colors, "red");
+  }
+
+  &.old-price {
+    color: map.get($colors, "gray-b");
+  }
+}

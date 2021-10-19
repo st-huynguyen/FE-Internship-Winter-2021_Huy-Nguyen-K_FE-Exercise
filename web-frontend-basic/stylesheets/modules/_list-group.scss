@@ -1,0 +1,20 @@
+@use "sass:map";
+
+.list-group-item {
+  margin: 1.2rem 0;
+}
+
+.list-group-title {
+  font-weight: 600;
+  @media only screen and (max-width: map.get($breakpoints, "small")) {
+    font-size: 2rem;
+  }
+}
+
+.list-group-link {
+  color: var(--white-color);
+  font-weight: 300;
+  @media only screen and (max-width: map.get($breakpoints, "small")) {
+    font-size: 1.8rem;
+  }
+}

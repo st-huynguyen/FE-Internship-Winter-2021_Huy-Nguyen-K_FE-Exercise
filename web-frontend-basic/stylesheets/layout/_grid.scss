@@ -1,0 +1,50 @@
+@use "sass:math";
+@use "sass:map";
+
+.container {
+  max-width: 1170px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+  @media only screen and (max-width: map.get($breakpoints, "small")) {
+    margin: 0 -5px;
+  }
+}
+.row > * {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 10px;
+  @media only screen and (max-width: map.get($breakpoints, "small")) {
+    padding: 0 5px;
+  }
+}
+.col {
+  flex: 1;
+}
+
+$columns: 12;
+@for $i from 1 through $columns {
+  .col-#{$i} {
+    flex: 0 0 auto;
+    width: percentage(math.div($i, $columns));
+  }
+}
+
+.col-3 {
+  @media only screen and (max-width: map.get($breakpoints, "small")) {
+    width: 50%;
+  }
+}
+
+.col-4,
+.col-5,
+.col-6,
+.col-7 {
+  @media only screen and (max-width: map.get($breakpoints, "small")) {
+    width: 100%;
+  }
+}

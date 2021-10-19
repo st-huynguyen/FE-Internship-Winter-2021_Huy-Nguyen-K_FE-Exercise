@@ -3,6 +3,14 @@
 // Fonts
 $font-primary: "Poppins", sans-serif;
 $font-size-primary: 16px;
+$font-size: (
+  "xs": 11px,
+  "sm": 13px,
+  "md": 16px,
+  "lg": 18px,
+  "xl": 20px,
+  "xxl": 24px,
+);
 
 // Colors
 $colors: (
@@ -20,3 +28,9 @@ $colors: (
 );
 
 // Breakpoints
+$breakpoints: (
+  "small": 480px,
+  "medium": 768px,
+  "wide": 960px,
+  "large": 1280px,
+);

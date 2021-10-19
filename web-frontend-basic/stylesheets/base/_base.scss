@@ -10,13 +10,16 @@
 
 html {
   font-size: 62.5%;
+  @media only screen and (max-width: map.get($breakpoints, "small")) {
+    font-size: 50%;
+  }
 }
 
 body {
   font-family: $font-primary;
   background-color: map.get($colors, "white");
   color: map.get($colors, "black");
-  font-size: $font-size-primary;
+  font-size: map.get($font-size, "md");
   font-weight: 400;
   line-height: 1.6;
 }
