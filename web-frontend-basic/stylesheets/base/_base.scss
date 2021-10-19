@@ -1,0 +1,43 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $font-primary;
+  background-color: $white-color;
+  color: $black-color;
+  font-weight: 400;
+  line-height: 1.6;
+  font-size: 1.6rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  font-family: $font-primary;
+  border: 0;
+  font-size: 2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+::placeholder {
+  font-family: $font-primary;
+  font-weight: 300;
+}
