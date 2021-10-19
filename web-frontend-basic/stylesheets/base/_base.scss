@@ -1,3 +1,5 @@
+@use "sass:map";
+
 *,
 *::before,
 *::after {
@@ -12,11 +14,11 @@ html {
 
 body {
   font-family: $font-primary;
-  background-color: $white-color;
-  color: $black-color;
+  background-color: map.get($colors, "white");
+  color: map.get($colors, "black");
+  font-size: $font-size-primary;
   font-weight: 400;
   line-height: 1.6;
-  font-size: 1.6rem;
 }
 
 img {

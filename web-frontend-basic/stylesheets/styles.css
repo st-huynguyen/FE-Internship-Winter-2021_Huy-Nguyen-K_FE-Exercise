@@ -144,11 +144,11 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #ffffff;
-  color: #333333;
+  background-color: #fff;
+  color: #333;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
-  font-size: 1.6rem;
 }
 
 img {
