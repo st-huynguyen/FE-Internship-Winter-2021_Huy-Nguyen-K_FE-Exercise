@@ -355,6 +355,10 @@ header {
   position: relative;
 }
 
+.section-product .btn {
+  right: 10px;
+}
+
 .card.card-product {
   position: relative;
 }
