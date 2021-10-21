@@ -4,69 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-shop</title>
-    <link rel="stylesheet" href="grid.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="grid.css" />
   </head>
   <body>
     <!-- Header -->
     <header>
       <div class="container">
-        <div class="row">
-          <div class="col navbar">
-            <h1 class="heading-1">
-              <a class="navbar-logo" href="#">
+        <div class="navbar">
+          <h1 class="heading-1">
+            <a class="navbar-logo" href="#">
+              <img
+                class="navbar-logo-img"
+                src="./assets/logo.png"
+                alt="E-shop"
+              />
+            </a>
+          </h1>
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Men</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Women</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Kids</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="nav-actions">
+          <ul class="nav-actions-list">
+            <li class="nav-actions-item">
+              <a class="btn-icon-link" href="#">
                 <img
-                  class="navbar-logo-img"
-                  src="./assets/logo.png"
-                  alt="E-shop"
+                  src="./assets/nav-icon-1.png"
+                  alt="Search"
+                  class="btn-icon-img"
                 />
               </a>
-            </h1>
-          </div>
-          <nav class="col nav">
-            <ul class="nav-list">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Men</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Women</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Kids</a>
-              </li>
-            </ul>
-          </nav>
-          <div class="col nav-actions">
-            <ul class="nav-actions-list">
-              <li class="nav-actions-item">
-                <a class="btn-icon-link" href="#">
-                  <img
-                    src="./assets/nav-icon-1.png"
-                    alt="Search"
-                    class="btn-icon-img"
-                  />
-                </a>
-              </li>
-              <li class="nav-actions-item">
-                <a class="btn-icon-link" href="#">
-                  <img
-                    src="./assets/nav-icon-2.png"
-                    alt="Cart"
-                    class="btn-icon-img"
-                  />
-                </a>
-              </li>
-              <li class="nav-actions-item">
-                <a class="btn-icon-link" href="#">
-                  <img
-                    src="./assets/nav-icon-3.png"
-                    alt="User"
-                    class="btn-icon-img"
-                  />
-                </a>
-              </li>
-            </ul>
-          </div>
+            </li>
+            <li class="nav-actions-item">
+              <a class="btn-icon-link" href="#">
+                <img
+                  src="./assets/nav-icon-2.png"
+                  alt="Cart"
+                  class="btn-icon-img"
+                />
+              </a>
+            </li>
+            <li class="nav-actions-item">
+              <a class="btn-icon-link" href="#">
+                <img
+                  src="./assets/nav-icon-3.png"
+                  alt="User"
+                  class="btn-icon-img"
+                />
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </header>
@@ -144,8 +142,10 @@
                   src="./assets/collection-1.jpg"
                   alt="New arrivalsare now in!"
                 />
-                <h3 class="card-name">New arrivalsare now in!</h3>
-                <a class="btn btn-white" href="#">Show collection</a>
+                <div class="collection-content">
+                  <h3 class="card-name">New arrivalsare now in!</h3>
+                  <a class="btn btn-white" href="#">Show collection</a>
+                </div>
               </div>
             </li>
             <li class="col">
@@ -155,8 +155,10 @@
                   src="./assets/collection-2.jpg"
                   alt="Basic t-shirts $29,99"
                 />
-                <h3 class="card-name">Basic t-shirts $29,99</h3>
-                <a class="btn btn-white" href="#">More details</a>
+                <div class="collection-content">
+                  <h3 class="card-name">Basic t-shirts $29,99</h3>
+                  <a class="btn btn-white" href="#">More details</a>
+                </div>
               </div>
             </li>
             <li class="col">
@@ -166,9 +168,11 @@
                   src="./assets/collection-3.jpg"
                   alt="Sale this summer"
                 />
-                <div class="badge"><span>-50%</span></div>
-                <h3 class="card-name">Sale this summer</h3>
-                <a class="btn btn-white" href="#">View all</a>
+                <div class="collection-content">
+                  <div class="badge"><span>-50%</span></div>
+                  <h3 class="card-name">Sale this summer</h3>
+                  <a class="btn btn-white" href="#">View all</a>
+                </div>
               </div>
             </li>
           </ul>
@@ -234,7 +238,7 @@
         </div>
       </section>
       <!-- Section Why should you choose us? -->
-      <section class="section-benefit">
+      <section class="section-benefit py-10">
         <div class="container">
           <h3 class="section-title text-center">Why should you choose us?</h3>
           <ul class="row my-10">
@@ -362,7 +366,7 @@
         </div>
       </section>
       <!-- Section Newsletter -->
-      <section class="section-newsletter">
+      <section class="section-newsletter mb-0 py-10">
         <div class="container">
           <div class="row my-10">
             <div class="col-6">

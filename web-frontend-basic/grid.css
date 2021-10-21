@@ -105,11 +105,15 @@
   margin-top: 48px;
 }
 
+.mb-0 {
+  margin-bottom: 0;
+}
+
 .mb-12 {
   margin-bottom: 48px;
 }
 
 .py-10 {
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
