@@ -31,21 +31,15 @@ html {
 
 body {
   font-family: var(--font-primary);
-  background-color: var(--white-color);
-  color: var(--black-color);
   font-weight: 400;
-  line-height: 1.6;
   font-size: 1.6rem;
+  line-height: 1.6;
+  color: var(--black-color);
+  background-color: var(--white-color);
 }
 
 img {
   max-width: 100%;
-}
-
-button {
-  font-family: var(--font-primary);
-  border: 0;
-  font-size: 2rem;
 }
 
 ul {
@@ -54,6 +48,21 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+h2 {
+  font-size: 7.2rem;
+  line-height: 1.1;
+}
+
+h3 {
+  font-size: 3.2rem;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
 ::placeholder {
@@ -95,12 +104,10 @@ a {
 /* Section */
 
 section {
-  padding: 4rem 0;
+  margin-bottom: 6rem;
 }
 
 .section-title {
-  font-size: 3.2rem;
-  font-weight: 300;
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
@@ -117,10 +124,6 @@ section {
   margin: 1.2rem 0;
 }
 
-.list-group-title {
-  font-weight: 600;
-}
-
 .list-group-link {
   color: var(--white-color);
   font-weight: 300;
@@ -128,9 +131,16 @@ section {
 
 /* Button */
 
+button {
+  font-family: var(--font-primary);
+  border: 0;
+  font-size: 2rem;
+}
+
 .btn,
 .btn:link,
 .btn:visited {
+  cursor: pointer;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 1.3rem;
@@ -156,18 +166,12 @@ section {
 
 /* Badge */
 
-.badge {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  background-color: var(--red-color);
-  padding: 0.7rem 1.4rem;
-  border-radius: 100rem;
-}
-
 .badge span {
   color: var(--white-color);
   font-weight: 600;
+  background-color: var(--red-color);
+  padding: 0.7rem 1.4rem;
+  border-radius: 100rem;
 }
 
 /* State */
@@ -185,7 +189,14 @@ header {
   z-index: 100;
 }
 
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .navbar-logo-img {
+  display: block;
   width: 14rem;
 }
 
@@ -197,7 +208,6 @@ header {
 
 .nav-list {
   gap: 8rem;
-  justify-content: center;
 }
 
 .nav-link:link,
@@ -214,6 +224,7 @@ header {
 
 .btn-icon-img {
   width: 2rem;
+  display: block;
 }
 
 /* Section banner */
@@ -224,19 +235,16 @@ header {
   background-size: cover;
   background-position: center;
   position: relative;
-  margin-bottom: 5rem;
-  box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.2);
-  z-index: -100;
+  margin-bottom: 8rem;
+  /* box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.2); */
 }
 
 .section-banner .banner-heading-box {
-  padding: 15rem 0 25rem 8rem;
+  padding: 20rem 0 30rem 8rem;
 }
 
 .section-banner .banner-heading {
-  font-size: 7.2rem;
   color: var(--white-color);
-  line-height: 1.1;
   margin-bottom: 2rem;
 }
 
@@ -279,7 +287,6 @@ header {
 .banner-benefit::before {
   background-color: var(--white-color);
   content: "";
-  z-index: -100;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -287,13 +294,18 @@ header {
   left: -100vw;
   display: block;
   border-radius: 0 5rem 0 0;
+  z-index: -1;
+}
+
+.banner-benefit {
+  z-index: 1;
 }
 
 .section-banner .banner-benefit {
   position: absolute;
   bottom: 0;
   background-color: var(--white-color);
-  padding: 4rem 8rem;
+  padding: 4rem 7rem;
   border-radius: 0 5rem 0 0;
 }
 
@@ -308,10 +320,6 @@ header {
   border-radius: 1rem;
 }
 
-.card.card-banner-benefit .card-name {
-  font-weight: 600;
-}
-
 .card.card-banner-benefit .card-content {
   font-size: 1.2rem;
   color: var(--gray-400-color);
@@ -323,30 +331,26 @@ header {
   position: relative;
 }
 
-.card.card-collection .card-name {
+.collection-content {
   position: absolute;
-  top: 50%;
   left: 4rem;
+  right: 4rem;
+  bottom: 53px;
+}
+
+.card.card-collection .card-name {
   color: var(--white-color);
   font-size: 2.4rem;
   font-weight: 300;
-  max-width: 70%;
-}
-
-.card.card-collection .btn {
-  position: absolute;
-  bottom: 4rem;
-  left: 4rem;
+  min-height: 9rem;
 }
 
 .card.card-collection .card-img {
   filter: brightness(70%);
-  z-index: -100;
 }
 
 .card.card-collection .badge {
-  top: 40%;
-  left: 4rem;
+  margin-bottom: 2rem;
 }
 
 /* Section product */
@@ -355,7 +359,7 @@ header {
   position: relative;
 }
 
-.section-product .btn {
+.section-product .section-actions {
   right: 10px;
 }
 
@@ -368,18 +372,20 @@ header {
   margin-top: 1.2rem;
 }
 
+.card.card-product .badge {
+  position: absolute;
+  top: 24px;
+  left: 18px;
+}
+
 /* Section benefit */
 
 .section-benefit {
   background-color: var(--gray-50-color);
 }
 
-.card.card-benefit .card-name {
-  font-weight: 600;
-  margin: 1rem 0;
-}
-
 .card.card-benefit .card-content {
+  margin: 1rem 0;
   font-size: 1.4rem;
   font-weight: 300;
   color: var(--gray-500-color);
@@ -456,156 +462,3 @@ footer {
   text-align: center;
   font-weight: 300;
 }
-
-/* Responsive */
-/* @media only screen and (max-width: 460px) {
-  html {
-    font-size: 50%;
-  }
-
-  section {
-    padding: 2rem 0;
-  }
-
-  .container {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-
-  .row {
-    margin: 0 -5px;
-  }
-
-  .row > * {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 5px;
-  }
-
-  .col-3 {
-    width: 50%;
-  }
-
-  .col-4 {
-    width: 100%;
-  }
-
-  .section-title {
-    font-size: 2.2rem;
-  }
-
-  .section-actions {
-    right: 10px;
-  }
-
-  .btn,
-  .btn:link,
-  .btn:visited {
-    font-size: 1.2rem;
-    padding: 1rem;
-  }
-
-  .btn-outline:link,
-  .btn-outline:visited {
-    border: 0;
-    padding: 0.8rem;
-  }
-
-  .badge {
-    top: 1.2rem;
-    left: 1.2rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .badge span {
-    font-size: 1rem;
-  }
-
-  .banner-benefit {
-    display: none;
-  }
-
-  .price {
-    font-size: 1.2rem;
-  }
-
-  .card.card-product {
-    margin: 1rem auto;
-  }
-
-  .card.card-product .card-name {
-    font-size: 1.5rem;
-    margin-top: 0.5rem;
-  }
-
-  .section-benefit .col-3 {
-    width: 100%;
-  }
-
-  .card.card-benefit {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .card.card-benefit .benefit-icon {
-    width: 8rem;
-  }
-
-  .card.card-benefit .card-content {
-    max-width: 90%;
-    font-size: 1.2rem;
-  }
-
-  .card.card-benefit .card-name {
-    font-size: 1.6rem;
-    font-weight: 600;
-    margin-top: 0;
-  }
-
-  .section-newsletter .section-title {
-    font-size: 1.7rem;
-    max-width: 25rem;
-  }
-
-  .newsletter-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.8rem;
-    margin: 2rem auto;
-  }
-
-  .newsletter-form .btn {
-    font-size: 1.6rem;
-    padding: 1rem 3rem;
-  }
-
-  .footer-logo-img {
-    width: 20rem;
-  }
-
-  .footer-about {
-    font-size: 1.7rem;
-  }
-
-  .footer-socials {
-    display: none;
-  }
-
-  .footer-list .col-4 {
-    margin-top: 2rem;
-  }
-
-  .footer-copyright {
-    font-size: 1.5rem;
-  }
-
-  .list-group-title {
-    font-size: 2rem;
-  }
-
-  .list-group-link {
-    font-size: 1.8rem;
-  }
-} */
