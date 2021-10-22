@@ -4,15 +4,19 @@ footer {
   background-color: map.get($colors, "primary");
   color: map.get($colors, "white");
   font-size: 1.4rem;
+
   .footer-logo-img {
     width: 14rem;
+
     @media only screen and (max-width: map.get($breakpoints, "small")) {
       width: 20rem;
     }
   }
+
   .footer-about {
     max-width: 38rem;
     margin: 2rem 0 4rem;
+
     @media only screen and (max-width: map.get($breakpoints, "small")) {
       font-size: 1.7rem;
     }
@@ -28,6 +32,7 @@ footer {
     width: 1.6rem;
     margin-right: 3rem;
   }
+
   .footer-list {
     display: flex;
 
@@ -37,12 +42,14 @@ footer {
       }
     }
   }
+
   .footer-copyright {
     display: block;
     padding: 2.4rem 0;
     border-top: 1px solid map.get($colors, "white");
     text-align: center;
     font-weight: 300;
+
     @media only screen and (max-width: map.get($breakpoints, "small")) {
       font-size: 1.5rem;
     }

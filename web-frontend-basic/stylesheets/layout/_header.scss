@@ -5,16 +5,26 @@ header {
   width: 100%;
   top: 4rem;
   z-index: 100;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   .navbar {
     .navbar-logo-img {
       width: 14rem;
+      display: block;
     }
   }
+
   .nav-list {
     display: flex;
     align-items: center;
     gap: 8rem;
     justify-content: center;
+
     .nav-link:link,
     .nav-link:visited {
       color: map.get($colors, "primary");
@@ -22,6 +32,7 @@ header {
       font-size: 1.8rem;
     }
   }
+
   .nav-actions {
     .nav-actions-list {
       display: flex;
@@ -29,8 +40,10 @@ header {
       gap: 2rem;
       justify-content: flex-end;
     }
+
     .btn-icon-img {
       width: 2rem;
+      display: block;
     }
   }
 }

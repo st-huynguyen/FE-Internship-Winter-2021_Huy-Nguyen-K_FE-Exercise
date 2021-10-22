@@ -4,32 +4,40 @@
   &.card-banner-benefit {
     display: flex;
     gap: 2rem;
+
     .card-img {
       width: 3.6rem;
       height: 3.6rem;
       border-radius: 1rem;
     }
-    .card-name {
-      font-weight: 600;
-    }
+
     .card-content {
       font-size: 1.2rem;
-      color: var(--gray-400-color);
+      color: map.get($colors, "gray-e");
     }
   }
 
   &.card-product {
     position: relative;
+
+    @media only screen and (max-width: map.get($breakpoints, "small")) {
+      margin: 1rem auto;
+    }
+
     .card-name {
       font-weight: 300;
       margin-top: 1.2rem;
+
       @media only screen and (max-width: map.get($breakpoints, "small")) {
         font-size: 1.5rem;
         margin-top: 0.5rem;
       }
     }
-    @media only screen and (max-width: map.get($breakpoints, "small")) {
-      margin: 1rem auto;
+
+    .badge {
+      position: absolute;
+      top: 24px;
+      left: 18px;
     }
   }
 
@@ -39,30 +47,27 @@
       align-items: center;
       gap: 2rem;
     }
-    .card-name {
-      font-weight: 600;
-      margin: 1rem 0;
-      @media only screen and (max-width: map.get($breakpoints, "small")) {
-        font-size: 1.6rem;
-        font-weight: 600;
-        margin-top: 0;
-      }
-    }
+
     .card-content {
+      margin: 1rem 0;
       font-size: 1.4rem;
       font-weight: 300;
       color: map.get($colors, "gray-f");
+
       @media only screen and (max-width: map.get($breakpoints, "small")) {
         max-width: 90%;
         font-size: 1.2rem;
       }
     }
+
     .card-img {
       border-radius: 1rem;
       margin: 2rem 0;
     }
+
     .benefit-icon {
       width: 6.8rem;
+
       @media only screen and (max-width: map.get($breakpoints, "small")) {
         width: 8rem;
       }
@@ -71,27 +76,27 @@
 
   &.card-collection {
     position: relative;
-    .card-name {
+
+    .card-content {
       position: absolute;
-      top: 50%;
       left: 4rem;
+      right: 4rem;
+      bottom: 53px;
+    }
+
+    .card-name {
       color: map.get($colors, "white");
       font-size: 2.4rem;
       font-weight: 300;
-      max-width: 70%;
+      min-height: 9rem;
     }
-    .btn {
-      position: absolute;
-      bottom: 4rem;
-      left: 4rem;
-    }
+
     .card-img {
-      filter: brightness(70%);
-      z-index: -100;
+      filter: brightness(60%);
     }
+
     .badge {
-      top: 40%;
-      left: 4rem;
+      margin-bottom: 2rem;
     }
   }
 }

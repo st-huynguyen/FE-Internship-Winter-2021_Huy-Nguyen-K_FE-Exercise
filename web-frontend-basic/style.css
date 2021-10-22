@@ -297,11 +297,8 @@ header .container {
   z-index: -1;
 }
 
-.banner-benefit {
-  z-index: 1;
-}
-
 .section-banner .banner-benefit {
+  z-index: 1;
   position: absolute;
   bottom: 0;
   background-color: var(--white-color);
@@ -331,7 +328,7 @@ header .container {
   position: relative;
 }
 
-.collection-content {
+.card.card-collection .card-content {
   position: absolute;
   left: 4rem;
   right: 4rem;

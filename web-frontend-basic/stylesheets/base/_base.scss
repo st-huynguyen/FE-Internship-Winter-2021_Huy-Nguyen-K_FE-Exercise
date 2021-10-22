@@ -17,21 +17,15 @@ html {
 
 body {
   font-family: $font-primary;
-  background-color: map.get($colors, "white");
-  color: map.get($colors, "black");
-  font-size: map.get($font-size, "md");
   font-weight: 400;
+  font-size: map.get($font-size, "md");
   line-height: 1.6;
+  color: map.get($colors, "black");
+  background-color: map.get($colors, "white");
 }
 
 img {
   max-width: 100%;
-}
-
-button {
-  font-family: $font-primary;
-  border: 0;
-  font-size: 2rem;
 }
 
 ul {
@@ -40,6 +34,22 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+h2 {
+  font-size: 7.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+h3 {
+  font-size: 3.2rem;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
 ::placeholder {

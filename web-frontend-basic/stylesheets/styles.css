@@ -149,21 +149,15 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #fff;
-  color: #333;
-  font-size: 16px;
   font-weight: 400;
+  font-size: 16px;
   line-height: 1.6;
+  color: #333;
+  background-color: #fff;
 }
 
 img {
   max-width: 100%;
-}
-
-button {
-  font-family: "Poppins", sans-serif;
-  border: 0;
-  font-size: 2rem;
 }
 
 ul {
@@ -174,31 +168,33 @@ a {
   text-decoration: none;
 }
 
+h2 {
+  font-size: 7.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+h3 {
+  font-size: 3.2rem;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
 ::placeholder {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
 }
 
-.badge {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  background-color: #ff0000;
-  padding: 0.4rem 1.2rem;
-  border-radius: 100rem;
-}
-@media only screen and (max-width: 480px) {
-  .badge {
-    top: 1.2rem;
-    left: 1.2rem;
-    padding: 0rem 1.2rem;
-  }
-}
-
 .badge span {
   color: #fff;
   font-weight: 600;
-  font-size: 1.2rem;
+  background-color: #ff0000;
+  padding: 0.7rem 1.4rem;
+  border-radius: 100rem;
 }
 @media only screen and (max-width: 480px) {
   .badge span {
@@ -206,9 +202,16 @@ a {
   }
 }
 
+button {
+  font-family: "Poppins", sans-serif;
+  border: 0;
+  font-size: 2rem;
+}
+
 .btn,
 .btn:link,
 .btn:visited {
+  cursor: pointer;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 1.3rem;
@@ -274,15 +277,17 @@ a {
   height: 3.6rem;
   border-radius: 1rem;
 }
-.card.card-banner-benefit .card-name {
-  font-weight: 600;
-}
 .card.card-banner-benefit .card-content {
   font-size: 1.2rem;
-  color: var(--gray-400-color);
+  color: #a8a8a8;
 }
 .card.card-product {
   position: relative;
+}
+@media only screen and (max-width: 480px) {
+  .card.card-product {
+    margin: 1rem auto;
+  }
 }
 .card.card-product .card-name {
   font-weight: 300;
@@ -294,10 +299,10 @@ a {
     margin-top: 0.5rem;
   }
 }
-@media only screen and (max-width: 480px) {
-  .card.card-product {
-    margin: 1rem auto;
-  }
+.card.card-product .badge {
+  position: absolute;
+  top: 24px;
+  left: 18px;
 }
 @media only screen and (max-width: 480px) {
   .card.card-benefit {
@@ -306,18 +311,8 @@ a {
     gap: 2rem;
   }
 }
-.card.card-benefit .card-name {
-  font-weight: 600;
-  margin: 1rem 0;
-}
-@media only screen and (max-width: 480px) {
-  .card.card-benefit .card-name {
-    font-size: 1.6rem;
-    font-weight: 600;
-    margin-top: 0;
-  }
-}
 .card.card-benefit .card-content {
+  margin: 1rem 0;
   font-size: 1.4rem;
   font-weight: 300;
   color: #808080;
@@ -343,48 +338,34 @@ a {
 .card.card-collection {
   position: relative;
 }
-.card.card-collection .card-name {
+.card.card-collection .card-content {
   position: absolute;
-  top: 50%;
   left: 4rem;
+  right: 4rem;
+  bottom: 53px;
+}
+.card.card-collection .card-name {
   color: #fff;
   font-size: 2.4rem;
   font-weight: 300;
-  max-width: 70%;
-}
-.card.card-collection .btn {
-  position: absolute;
-  bottom: 4rem;
-  left: 4rem;
+  min-height: 9rem;
 }
 .card.card-collection .card-img {
-  filter: brightness(70%);
-  z-index: -100;
+  filter: brightness(60%);
 }
 .card.card-collection .badge {
-  top: 40%;
-  left: 4rem;
+  margin-bottom: 2rem;
 }
 
-.list-group-item {
+.list-group .list-group-item {
   margin: 1.2rem 0;
 }
-
-.list-group-title {
-  font-weight: 600;
-}
-@media only screen and (max-width: 480px) {
-  .list-group-title {
-    font-size: 2rem;
-  }
-}
-
-.list-group-link {
+.list-group .list-group-link {
   color: var(--white-color);
   font-weight: 300;
 }
 @media only screen and (max-width: 480px) {
-  .list-group-link {
+  .list-group .list-group-link {
     font-size: 1.8rem;
   }
 }
@@ -510,8 +491,14 @@ header {
   top: 4rem;
   z-index: 100;
 }
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 header .navbar .navbar-logo-img {
   width: 14rem;
+  display: block;
 }
 header .nav-list {
   display: flex;
@@ -533,6 +520,7 @@ header .nav-actions .nav-actions-list {
 }
 header .nav-actions .btn-icon-img {
   width: 2rem;
+  display: block;
 }
 
 footer {
@@ -588,23 +576,16 @@ footer .footer-copyright {
 }
 
 section {
-  padding: 4rem 0;
+  margin-bottom: 6rem;
 }
 @media only screen and (max-width: 480px) {
   section {
-    padding: 2rem 0;
+    margin-bottom: 4rem;
   }
 }
 section .section-title {
-  font-size: 3.2rem;
-  font-weight: 300;
   margin-top: 2rem;
   margin-bottom: 2rem;
-}
-@media only screen and (max-width: 480px) {
-  section .section-title {
-    font-size: 2.2rem;
-  }
 }
 section .section-actions {
   position: absolute;
@@ -623,18 +604,13 @@ section .section-actions {
   background-size: cover;
   background-position: center;
   position: relative;
-  margin-bottom: 5rem;
-  box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.2);
-  z-index: -100;
+  margin-bottom: 8rem;
 }
 .section-banner .banner-heading-box {
-  padding: 15rem 0 25rem 8rem;
+  padding: 20rem 0 30rem 8rem;
 }
 .section-banner .banner-heading {
-  font-size: 7.2rem;
-  font-weight: 700;
   color: #fff;
-  line-height: 1.1;
   margin-bottom: 2rem;
 }
 .section-banner .banner-heading span {
@@ -668,16 +644,16 @@ section .section-actions {
   border-radius: 10rem;
 }
 .section-banner .banner-benefit {
+  z-index: 1;
   position: absolute;
   bottom: 0;
   background-color: #fff;
-  padding: 4rem 8rem;
+  padding: 4rem 7rem;
   border-radius: 0 5rem 0 0;
 }
 .section-banner .banner-benefit::before {
   background-color: #fff;
   content: "";
-  z-index: -100;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -685,6 +661,7 @@ section .section-actions {
   left: -100vw;
   display: block;
   border-radius: 0 5rem 0 0;
+  z-index: -1;
 }
 @media only screen and (max-width: 480px) {
   .section-banner .banner-benefit {
@@ -778,13 +755,17 @@ section .section-actions {
   margin-top: 48px;
 }
 
+.mb-0 {
+  margin-bottom: 0px;
+}
+
 .mb-12 {
   margin-bottom: 48px;
 }
 
 .py-10 {
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .text-center {
