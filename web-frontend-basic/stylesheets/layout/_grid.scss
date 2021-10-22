@@ -5,14 +5,19 @@
   max-width: 1170px;
   padding: 0 10px;
   margin: 0 auto;
+
+  @media only screen and (max-width: map.get($breakpoints, "small")) {
+    margin: 0 14px;
+  }
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -10px;
+
   @media only screen and (max-width: map.get($breakpoints, "small")) {
-    margin: 0 -5px;
+    margin: 0 -4px;
   }
 }
 
@@ -20,8 +25,9 @@
   width: 100%;
   max-width: 100%;
   padding: 0 10px;
+
   @media only screen and (max-width: map.get($breakpoints, "small")) {
-    padding: 0 5px;
+    padding: 0 4px;
   }
 }
 .col {

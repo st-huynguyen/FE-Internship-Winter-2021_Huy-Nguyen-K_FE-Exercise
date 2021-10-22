@@ -6,6 +6,13 @@ header {
   top: 4rem;
   z-index: 100;
 
+  @media only screen and (max-width: map.get($breakpoints, "small")) {
+    top: 0;
+    background-color: map.get($colors, "white");
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
   .container {
     display: flex;
     align-items: center;
@@ -16,6 +23,14 @@ header {
     .navbar-logo-img {
       width: 14rem;
       display: block;
+    }
+
+    .mobile-only {
+      @include mobile-only;
+    }
+
+    .pc-only {
+      @include pc-only;
     }
   }
 
@@ -31,6 +46,10 @@ header {
       font-weight: 600;
       font-size: 1.8rem;
     }
+
+    @media only screen and (max-width: map.get($breakpoints, "small")) {
+      display: none;
+    }
   }
 
   .nav-actions {
@@ -44,6 +63,14 @@ header {
     .btn-icon-img {
       width: 2rem;
       display: block;
+    }
+
+    .mobile-only {
+      @include mobile-only;
+    }
+
+    .pc-only {
+      @include pc-only;
     }
   }
 }

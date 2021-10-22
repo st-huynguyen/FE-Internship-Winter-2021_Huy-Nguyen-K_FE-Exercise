@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-shop</title>
-    <link rel="stylesheet" href="grid.css" />
-    <link rel="stylesheet" href="style.css" />
-    <!-- <link rel="stylesheet" href="stylesheets/styles.css" /> -->
+    <!-- <link rel="stylesheet" href="grid.css" /> -->
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link rel="stylesheet" href="stylesheets/styles.css" />
   </head>
   <body>
     <!-- Header -->
@@ -16,8 +16,13 @@
           <h1 class="heading-1">
             <a class="navbar-logo" href="#">
               <img
-                class="navbar-logo-img"
+                class="navbar-logo-img pc-only"
                 src="./assets/logo.png"
+                alt="E-shop"
+              />
+              <img
+                class="navbar-logo-img mobile-only"
+                src="./assets/logo-black.png"
                 alt="E-shop"
               />
             </a>
@@ -43,7 +48,12 @@
                 <img
                   src="./assets/nav-icon-1.png"
                   alt="Search"
-                  class="btn-icon-img"
+                  class="btn-icon-img pc-only"
+                />
+                <img
+                  src="./assets/nav-icon-2-black.png"
+                  alt="Search"
+                  class="btn-icon-img mobile-only"
                 />
               </a>
             </li>
@@ -52,7 +62,12 @@
                 <img
                   src="./assets/nav-icon-2.png"
                   alt="Cart"
-                  class="btn-icon-img"
+                  class="btn-icon-img pc-only"
+                />
+                <img
+                  src="./assets/nav-icon-3-black.png"
+                  alt="Search"
+                  class="btn-icon-img mobile-only"
                 />
               </a>
             </li>
@@ -61,7 +76,12 @@
                 <img
                   src="./assets/nav-icon-3.png"
                   alt="User"
-                  class="btn-icon-img"
+                  class="btn-icon-img pc-only"
+                />
+                <img
+                  src="./assets/nav-icon-4-black.png"
+                  alt="Search"
+                  class="btn-icon-img mobile-only"
                 />
               </a>
             </li>
@@ -239,7 +259,7 @@
         </div>
       </section>
       <!-- Section Why should you choose us? -->
-      <section class="section-benefit py-10">
+      <section class="section-benefit">
         <div class="container">
           <h3 class="section-title text-center">Why should you choose us?</h3>
           <ul class="row my-10">
@@ -367,9 +387,9 @@
         </div>
       </section>
       <!-- Section Newsletter -->
-      <section class="section-newsletter mb-0 py-10">
+      <section class="section-newsletter mb-0">
         <div class="container">
-          <div class="row my-10">
+          <div class="row">
             <div class="col-6">
               <p class="section-title">
                 Subscribe to our newsletter andreceive exclusive offers every

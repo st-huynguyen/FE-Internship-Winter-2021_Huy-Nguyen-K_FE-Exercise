@@ -7,7 +7,7 @@
   justify-content: space-between;
 
   @media only screen and (max-width: map.get($breakpoints, "small")) {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   &.new-price {

@@ -1,8 +1,14 @@
+@use "sass:map";
+
 $my: 2, 5, 10;
 @each $i in $my {
   .my-#{$i} {
     margin-top: $i * 4px;
     margin-bottom: $i * 4px;
+    @media only screen and (max-width: map.get($breakpoints, "small")) {
+      margin-top: $i * 1px;
+      margin-bottom: $i * 1px;
+    }
   }
 }
 
@@ -10,6 +16,9 @@ $mt: 4, 12;
 @each $i in $mt {
   .mt-#{$i} {
     margin-top: $i * 4px;
+    @media only screen and (max-width: map.get($breakpoints, "small")) {
+      margin-top: $i * 1px;
+    }
   }
 }
 
@@ -17,6 +26,9 @@ $mb: 0, 12;
 @each $i in $mb {
   .mb-#{$i} {
     margin-bottom: $i * 4px;
+    @media only screen and (max-width: map.get($breakpoints, "small")) {
+      margin-bottom: $i * 1px;
+    }
   }
 }
 
@@ -25,5 +37,9 @@ $py: 10;
   .py-#{$i} {
     padding-top: $i * 4px;
     padding-bottom: $i * 4px;
+    @media only screen and (max-width: map.get($breakpoints, "small")) {
+      padding-top: $i * 1px;
+      padding-bottom: $i * 1px;
+    }
   }
 }

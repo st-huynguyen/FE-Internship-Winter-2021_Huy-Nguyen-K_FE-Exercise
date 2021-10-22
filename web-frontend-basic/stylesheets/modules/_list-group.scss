@@ -10,7 +10,13 @@
     font-weight: 300;
 
     @media only screen and (max-width: map.get($breakpoints, "small")) {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
     }
+  }
+}
+
+.list-group-title {
+  @media only screen and (max-width: map.get($breakpoints, "small")) {
+    font-size: 1.6rem;
   }
 }

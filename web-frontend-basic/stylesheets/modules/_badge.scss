@@ -8,6 +8,7 @@
   border-radius: 100rem;
 
   @media only screen and (max-width: map.get($breakpoints, "small")) {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
   }
 }

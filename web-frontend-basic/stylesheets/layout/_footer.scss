@@ -5,11 +5,15 @@ footer {
   color: map.get($colors, "white");
   font-size: 1.4rem;
 
+  @media only screen and (max-width: map.get($breakpoints, "small")) {
+    padding-top: 2.4rem;
+  }
+
   .footer-logo-img {
     width: 14rem;
 
     @media only screen and (max-width: map.get($breakpoints, "small")) {
-      width: 20rem;
+      width: 16rem;
     }
   }
 
@@ -18,7 +22,7 @@ footer {
     margin: 2rem 0 4rem;
 
     @media only screen and (max-width: map.get($breakpoints, "small")) {
-      font-size: 1.7rem;
+      font-size: 1.4rem;
     }
   }
 
@@ -38,7 +42,7 @@ footer {
 
     .col-4 {
       @media only screen and (max-width: map.get($breakpoints, "small")) {
-        margin-top: 2rem;
+        margin-top: 1.6rem;
       }
     }
   }
@@ -51,7 +55,7 @@ footer {
     font-weight: 300;
 
     @media only screen and (max-width: map.get($breakpoints, "small")) {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
   }
 }
