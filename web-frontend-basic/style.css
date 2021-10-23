@@ -462,3 +462,18 @@ footer {
   text-align: center;
   font-weight: 300;
 }
+
+.btn-add-to-cart {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  z-index: 1;
+  text-transform: none;
+  background-color: var(--primary-color);
+  font-weight: 500;
+}
+
+.none {
+  display: none;
+}
