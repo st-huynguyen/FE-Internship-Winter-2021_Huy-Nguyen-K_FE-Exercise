@@ -1,15 +1,13 @@
-@use "sass:map";
-
 @mixin mobile-only {
   display: none;
 
-  @media only screen and (max-width: map.get($breakpoints, "small")) {
+  @media only screen and (max-width: map-get($breakpoints, "small")) {
     display: block;
   }
 }
 
 @mixin pc-only {
-  @media only screen and (max-width: map.get($breakpoints, "small")) {
+  @media only screen and (max-width: map-get($breakpoints, "small")) {
     display: none;
   }
 }

@@ -1,5 +1,3 @@
-@use "sass:map";
-
 button {
   font-family: $font-primary;
   border: 0;
@@ -17,9 +15,9 @@ button {
   display: inline-block;
   padding: 1.4rem 2.6rem;
   border-radius: 10rem;
-  color: map.get($colors, "black");
+  color: map-get($colors, "black");
 
-  @media only screen and (max-width: map.get($breakpoints, "small")) {
+  @media only screen and (max-width: map-get($breakpoints, "small")) {
     padding: 0.3rem 1.1rem;
     font-size: 1rem;
   }
@@ -27,18 +25,18 @@ button {
 
 .btn-outline:link,
 .btn-outline:visited {
-  border: 1px solid map.get($colors, "gray-c");
+  border: 1px solid map-get($colors, "gray-c");
 
-  @media only screen and (max-width: map.get($breakpoints, "small")) {
+  @media only screen and (max-width: map-get($breakpoints, "small")) {
     border: 0;
     padding: 0;
   }
 }
 
 .btn-primary {
-  background-color: map.get($colors, "primary");
+  background-color: map-get($colors, "primary");
 }
 
 .btn-white {
-  background-color: map.get($colors, "white");
+  background-color: map-get($colors, "white");
 }

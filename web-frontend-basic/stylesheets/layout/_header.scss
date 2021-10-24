@@ -1,22 +1,18 @@
-@use "sass:map";
-
 header {
   position: absolute;
   width: 100%;
   top: 4rem;
   z-index: 100;
 
-  @media only screen and (max-width: map.get($breakpoints, "small")) {
+  @media only screen and (max-width: map-get($breakpoints, "small")) {
     top: 0;
-    background-color: map.get($colors, "white");
+    background-color: map-get($colors, "white");
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
 
   .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @extend %flex-row-c-btw-i-center;
   }
 
   .navbar {
@@ -35,29 +31,25 @@ header {
   }
 
   .nav-list {
-    display: flex;
-    align-items: center;
+    @extend %flex-row-c-center-i-center;
     gap: 8rem;
-    justify-content: center;
 
     .nav-link:link,
     .nav-link:visited {
-      color: map.get($colors, "primary");
+      color: map-get($colors, "primary");
       font-weight: 600;
       font-size: 1.8rem;
     }
 
-    @media only screen and (max-width: map.get($breakpoints, "small")) {
+    @media only screen and (max-width: map-get($breakpoints, "small")) {
       display: none;
     }
   }
 
   .nav-actions {
     .nav-actions-list {
-      display: flex;
-      align-items: center;
+      @extend %flex-row-c-end-i-center;
       gap: 2rem;
-      justify-content: flex-end;
     }
 
     .btn-icon-img {

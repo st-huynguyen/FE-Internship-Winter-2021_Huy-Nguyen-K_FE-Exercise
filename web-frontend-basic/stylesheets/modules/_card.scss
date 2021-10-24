@@ -1,8 +1,6 @@
-@use "sass:map";
-
 .card {
   &.card-banner-benefit {
-    display: flex;
+    @extend %flex-row;
     gap: 2rem;
 
     .card-img {
@@ -13,14 +11,14 @@
 
     .card-content {
       font-size: 1.2rem;
-      color: map.get($colors, "gray-e");
+      color: map-get($colors, "gray-e");
     }
   }
 
   &.card-product {
     position: relative;
 
-    @media only screen and (max-width: map.get($breakpoints, "small")) {
+    @media only screen and (max-width: map-get($breakpoints, "small")) {
       margin: 0.5rem auto;
     }
 
@@ -28,7 +26,7 @@
       font-weight: 300;
       margin-top: 1.2rem;
 
-      @media only screen and (max-width: map.get($breakpoints, "small")) {
+      @media only screen and (max-width: map-get($breakpoints, "small")) {
         font-size: 1.2rem;
         margin-top: 0.2rem;
       }
@@ -39,7 +37,7 @@
       top: 24px;
       left: 18px;
 
-      @media only screen and (max-width: map.get($breakpoints, "small")) {
+      @media only screen and (max-width: map-get($breakpoints, "small")) {
         top: 10px;
         left: 9px;
       }
@@ -47,13 +45,14 @@
   }
 
   &.card-benefit {
-    @media only screen and (max-width: map.get($breakpoints, "small")) {
+    @media only screen and (max-width: map-get($breakpoints, "small")) {
+      // @extend %flex-row-i-center;
       display: flex;
       align-items: center;
       gap: 1.6rem;
     }
 
-    @media only screen and (max-width: map.get($breakpoints, "small")) {
+    @media only screen and (max-width: map-get($breakpoints, "small")) {
       margin-top: 1.6rem;
     }
 
@@ -61,9 +60,9 @@
       margin: 1rem 0;
       font-size: 1.4rem;
       font-weight: 300;
-      color: map.get($colors, "gray-f");
+      color: map-get($colors, "gray-f");
 
-      @media only screen and (max-width: map.get($breakpoints, "small")) {
+      @media only screen and (max-width: map-get($breakpoints, "small")) {
         max-width: 90%;
         font-size: 1rem;
         margin: 0.4rem 0;
@@ -78,7 +77,7 @@
     .benefit-icon {
       width: 6.8rem;
 
-      @media only screen and (max-width: map.get($breakpoints, "small")) {
+      @media only screen and (max-width: map-get($breakpoints, "small")) {
         margin: 0;
       }
     }
@@ -93,19 +92,19 @@
       right: 4rem;
       bottom: 53px;
 
-      @media only screen and (max-width: map.get($breakpoints, "small")) {
+      @media only screen and (max-width: map-get($breakpoints, "small")) {
         left: 16px;
         bottom: 24px;
       }
     }
 
     .card-name {
-      color: map.get($colors, "white");
+      color: map-get($colors, "white");
       font-size: 2.4rem;
       font-weight: 300;
       min-height: 9rem;
 
-      @media only screen and (max-width: map.get($breakpoints, "small")) {
+      @media only screen and (max-width: map-get($breakpoints, "small")) {
         font-size: 1.4rem;
         min-height: 5rem;
       }
@@ -118,7 +117,7 @@
     .badge {
       margin-bottom: 2rem;
 
-      @media only screen and (max-width: map.get($breakpoints, "small")) {
+      @media only screen and (max-width: map-get($breakpoints, "small")) {
         margin-bottom: 0.6rem;
       }
     }

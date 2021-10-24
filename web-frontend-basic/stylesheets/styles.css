@@ -209,6 +209,67 @@ h4 {
   }
 }
 
+section {
+  margin-bottom: 6rem;
+}
+@media only screen and (max-width: 480px) {
+  section {
+    margin-bottom: 4rem;
+  }
+}
+section .section-title {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+@media only screen and (max-width: 480px) {
+  section .section-title {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+section .section-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+@media only screen and (max-width: 480px) {
+  section .section-actions {
+    right: 10px;
+  }
+}
+
+.section-newsletter .newsletter-form, footer .footer-list, .row, .card.card-banner-benefit {
+  display: flex;
+  flex-direction: row;
+}
+
+header .nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+header .nav-actions .nav-actions-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+header .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .badge span {
   color: #fff;
   font-weight: 600;
@@ -274,8 +335,6 @@ button {
 .price {
   font-size: 2rem;
   font-weight: 400;
-  display: flex;
-  justify-content: space-between;
 }
 @media only screen and (max-width: 480px) {
   .price {
@@ -290,7 +349,6 @@ button {
 }
 
 .card.card-banner-benefit {
-  display: flex;
   gap: 2rem;
 }
 .card.card-banner-benefit .card-img {
@@ -411,7 +469,7 @@ button {
   margin: 1.2rem 0;
 }
 .list-group .list-group-link {
-  color: var(--white-color);
+  color: #fff;
   font-weight: 300;
 }
 @media only screen and (max-width: 480px) {
@@ -451,7 +509,6 @@ button {
 }
 
 .row {
-  display: flex;
   flex-wrap: wrap;
   margin: 0 -10px;
 }
@@ -565,11 +622,6 @@ header {
     padding-bottom: 2rem;
   }
 }
-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 header .navbar .navbar-logo-img {
   width: 14rem;
   display: block;
@@ -588,10 +640,7 @@ header .navbar .mobile-only {
   }
 }
 header .nav-list {
-  display: flex;
-  align-items: center;
   gap: 8rem;
-  justify-content: center;
 }
 header .nav-list .nav-link:link,
 header .nav-list .nav-link:visited {
@@ -605,10 +654,7 @@ header .nav-list .nav-link:visited {
   }
 }
 header .nav-actions .nav-actions-list {
-  display: flex;
-  align-items: center;
   gap: 2rem;
-  justify-content: flex-end;
 }
 header .nav-actions .btn-icon-img {
   width: 2rem;
@@ -664,9 +710,6 @@ footer .footer-socials-icon {
   width: 1.6rem;
   margin-right: 3rem;
 }
-footer .footer-list {
-  display: flex;
-}
 @media only screen and (max-width: 480px) {
   footer .footer-list .col-4 {
     margin-top: 1.6rem;
@@ -685,33 +728,88 @@ footer .footer-copyright {
   }
 }
 
-section {
-  margin-bottom: 6rem;
+.my-2 {
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 @media only screen and (max-width: 480px) {
-  section {
-    margin-bottom: 4rem;
+  .my-2 {
+    margin-top: 2px;
+    margin-bottom: 2px;
   }
 }
-section .section-title {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+
+.my-5 {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 @media only screen and (max-width: 480px) {
-  section .section-title {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+  .my-5 {
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 }
-section .section-actions {
-  position: absolute;
-  top: 0;
-  right: 0;
+
+.my-10 {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 @media only screen and (max-width: 480px) {
-  section .section-actions {
-    right: 10px;
+  .my-10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+@media only screen and (max-width: 480px) {
+  .mt-4 {
+    margin-top: 4px;
+  }
+}
+
+.mt-12 {
+  margin-top: 48px;
+}
+@media only screen and (max-width: 480px) {
+  .mt-12 {
+    margin-top: 12px;
+  }
+}
+
+.mb-0 {
+  margin-bottom: 0px;
+}
+@media only screen and (max-width: 480px) {
+  .mb-0 {
+    margin-bottom: 0px;
+  }
+}
+
+.mb-12 {
+  margin-bottom: 48px;
+}
+@media only screen and (max-width: 480px) {
+  .mb-12 {
+    margin-bottom: 12px;
+  }
+}
+
+.py-10 {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+@media only screen and (max-width: 480px) {
+  .py-10 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+.text-center {
+  text-align: center;
 }
 
 .section-banner {
@@ -874,7 +972,6 @@ section .section-actions {
   }
 }
 .section-newsletter .newsletter-form {
-  display: flex;
   gap: 3rem;
   width: 100%;
 }
@@ -894,90 +991,6 @@ section .section-actions {
 }
 .section-newsletter .form-input {
   width: 100%;
-}
-
-.my-2 {
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
-@media only screen and (max-width: 480px) {
-  .my-2 {
-    margin-top: 2px;
-    margin-bottom: 2px;
-  }
-}
-
-.my-5 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-@media only screen and (max-width: 480px) {
-  .my-5 {
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-}
-
-.my-10 {
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-@media only screen and (max-width: 480px) {
-  .my-10 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-}
-
-.mt-4 {
-  margin-top: 16px;
-}
-@media only screen and (max-width: 480px) {
-  .mt-4 {
-    margin-top: 4px;
-  }
-}
-
-.mt-12 {
-  margin-top: 48px;
-}
-@media only screen and (max-width: 480px) {
-  .mt-12 {
-    margin-top: 12px;
-  }
-}
-
-.mb-0 {
-  margin-bottom: 0px;
-}
-@media only screen and (max-width: 480px) {
-  .mb-0 {
-    margin-bottom: 0px;
-  }
-}
-
-.mb-12 {
-  margin-bottom: 48px;
-}
-@media only screen and (max-width: 480px) {
-  .mb-12 {
-    margin-bottom: 12px;
-  }
-}
-
-.py-10 {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-@media only screen and (max-width: 480px) {
-  .py-10 {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-}
-
-.text-center {
-  text-align: center;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,18 +1,16 @@
-@use "sass:map";
-
 footer {
-  background-color: map.get($colors, "primary");
-  color: map.get($colors, "white");
+  background-color: map-get($colors, "primary");
+  color: map-get($colors, "white");
   font-size: 1.4rem;
 
-  @media only screen and (max-width: map.get($breakpoints, "small")) {
+  @media only screen and (max-width: map-get($breakpoints, "small")) {
     padding-top: 2.4rem;
   }
 
   .footer-logo-img {
     width: 14rem;
 
-    @media only screen and (max-width: map.get($breakpoints, "small")) {
+    @media only screen and (max-width: map-get($breakpoints, "small")) {
       width: 16rem;
     }
   }
@@ -21,13 +19,13 @@ footer {
     max-width: 38rem;
     margin: 2rem 0 4rem;
 
-    @media only screen and (max-width: map.get($breakpoints, "small")) {
+    @media only screen and (max-width: map-get($breakpoints, "small")) {
       font-size: 1.4rem;
     }
   }
 
   .footer-socials {
-    @media only screen and (max-width: map.get($breakpoints, "small")) {
+    @media only screen and (max-width: map-get($breakpoints, "small")) {
       display: none;
     }
   }
@@ -38,10 +36,10 @@ footer {
   }
 
   .footer-list {
-    display: flex;
+    @extend %flex-row;
 
     .col-4 {
-      @media only screen and (max-width: map.get($breakpoints, "small")) {
+      @media only screen and (max-width: map-get($breakpoints, "small")) {
         margin-top: 1.6rem;
       }
     }
@@ -50,11 +48,11 @@ footer {
   .footer-copyright {
     display: block;
     padding: 2.4rem 0;
-    border-top: 1px solid map.get($colors, "white");
+    border-top: 1px solid map-get($colors, "white");
     text-align: center;
     font-weight: 300;
 
-    @media only screen and (max-width: map.get($breakpoints, "small")) {
+    @media only screen and (max-width: map-get($breakpoints, "small")) {
       font-size: 1.2rem;
     }
   }
