@@ -9,10 +9,6 @@ header {
   .navbar {
     .navbar-logo-img {
       width: 14rem;
-      display: block;
-    }
-    .sp-only {
-      display: none;
     }
   }
   .nav-list {
@@ -29,13 +25,9 @@ header {
     .nav-actions-list {
       @extend %flex-row-c-end-i-center;
       gap: 2rem;
-      .sp-only {
-        display: none;
-      }
     }
     .btn-icon-img {
       width: 2rem;
-      display: block;
     }
   }
 }
@@ -47,24 +39,6 @@ header {
     padding-bottom: 2rem;
     .nav-list {
       display: none;
-    }
-    .navbar {
-      .sp-only {
-        display: block;
-      }
-      .pc-only {
-        display: none;
-      }
-    }
-    .nav-actions {
-      .nav-actions-list {
-        .sp-only {
-          display: block;
-        }
-        .pc-only {
-          display: none;
-        }
-      }
     }
   }
 }

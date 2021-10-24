@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 html,
 body,
 div,
@@ -235,7 +234,15 @@ section .section-actions {
   right: 0;
 }
 
-@media only screen and (max-width: 768px) {
+.sp-only {
+  display: none;
+}
+
+.pc-only {
+  display: block;
+}
+
+@media only screen and (max-width: 767px) {
   body {
     font-size: 14px;
   }
@@ -266,16 +273,25 @@ section .section-actions {
   section .section-action {
     right: 10px;
   }
+
+  .sp-only {
+    display: block;
+  }
+
+  .pc-only {
+    display: none;
+  }
 }
 .badge span {
   color: #fff;
   font-weight: 600;
+  font-size: 1.2rem;
   background-color: #ff0000;
-  padding: 0.7rem 1.4rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 100rem;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .badge span {
     font-size: 0.8rem;
     padding: 0.3rem 0.6rem;
@@ -322,7 +338,7 @@ button {
     font-size: 1.2rem;
   }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .btn,
 .btn:link,
 .btn:visited {
@@ -347,7 +363,7 @@ button {
   color: #cecece;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .price {
     font-size: 1rem;
   }
@@ -434,7 +450,7 @@ button {
     margin-bottom: 2rem;
   }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .card.card-product {
     margin: 0.5rem auto;
   }
@@ -480,7 +496,7 @@ button {
   font-weight: 300;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .list-group .list-group-item {
     font-size: 1.4rem;
   }
@@ -497,7 +513,7 @@ button {
   border: 0;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .form-input {
     padding: 1.2rem 1.8rem;
   }
@@ -583,7 +599,7 @@ button {
   width: 100%;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .container {
     margin: 0 14px;
   }
@@ -617,10 +633,6 @@ header {
 }
 header .navbar .navbar-logo-img {
   width: 14rem;
-  display: block;
-}
-header .navbar .sp-only {
-  display: none;
 }
 header .nav-list {
   gap: 8rem;
@@ -634,15 +646,11 @@ header .nav-list .nav-link:visited {
 header .nav-actions .nav-actions-list {
   gap: 2rem;
 }
-header .nav-actions .nav-actions-list .sp-only {
-  display: none;
-}
 header .nav-actions .btn-icon-img {
   width: 2rem;
-  display: block;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   header {
     top: 0;
     background-color: #fff;
@@ -650,18 +658,6 @@ header .nav-actions .btn-icon-img {
     padding-bottom: 2rem;
   }
   header .nav-list {
-    display: none;
-  }
-  header .navbar .sp-only {
-    display: block;
-  }
-  header .navbar .pc-only {
-    display: none;
-  }
-  header .nav-actions .nav-actions-list .sp-only {
-    display: block;
-  }
-  header .nav-actions .nav-actions-list .pc-only {
     display: none;
   }
 }
@@ -689,7 +685,7 @@ footer .footer-copyright {
   font-weight: 300;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   footer {
     padding-top: 2.4rem;
   }
@@ -713,7 +709,7 @@ footer .footer-copyright {
   margin-top: 8px;
   margin-bottom: 8px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: ) {
   .my-2 {
     margin-top: 2px;
     margin-bottom: 2px;
@@ -724,7 +720,7 @@ footer .footer-copyright {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: ) {
   .my-5 {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -735,7 +731,7 @@ footer .footer-copyright {
   margin-top: 40px;
   margin-bottom: 40px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: ) {
   .my-10 {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -745,7 +741,7 @@ footer .footer-copyright {
 .mt-4 {
   margin-top: 16px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: ) {
   .mt-4 {
     margin-top: 4px;
   }
@@ -754,7 +750,7 @@ footer .footer-copyright {
 .mt-12 {
   margin-top: 48px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: ) {
   .mt-12 {
     margin-top: 12px;
   }
@@ -763,7 +759,7 @@ footer .footer-copyright {
 .mb-0 {
   margin-bottom: 0px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: ) {
   .mb-0 {
     margin-bottom: 0px;
   }
@@ -772,7 +768,7 @@ footer .footer-copyright {
 .mb-12 {
   margin-bottom: 48px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: ) {
   .mb-12 {
     margin-bottom: 12px;
   }
@@ -782,7 +778,7 @@ footer .footer-copyright {
   padding-top: 40px;
   padding-bottom: 40px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: ) {
   .py-10 {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -892,7 +888,7 @@ footer .footer-copyright {
   width: 100%;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .section-banner {
     margin-bottom: 2.4rem;
     background-image: url("../assets/hero-img-mobile.jpg"), linear-gradient(150deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));

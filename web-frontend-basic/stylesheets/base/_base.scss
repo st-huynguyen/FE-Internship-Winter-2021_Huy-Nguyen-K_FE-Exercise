@@ -54,6 +54,12 @@ section {
     right: 0;
   }
 }
+.sp-only {
+  display: none;
+}
+.pc-only {
+  display: block;
+}
 @media only screen and (max-width: map-get($breakpoints, "medium")) {
   body {
     font-size: map-get($font-size, "sm");
@@ -79,5 +85,11 @@ section {
     .section-action {
       right: 10px;
     }
+  }
+  .sp-only {
+    display: block;
+  }
+  .pc-only {
+    display: none;
   }
 }
