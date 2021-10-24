@@ -73,10 +73,14 @@ products.forEach((product) => {
 });
 
 const calcTotalCost = (productsList) => {
-  return productsList.reduce((acc, cur) => acc + cur.price * cur.quantity, 0);
+  return productsList.length
+    ? +productsList
+        .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
+        .toFixed(2)
+    : 0;
 };
 
-// Handle click event on "Add to cart" button
+// Handle click event on "Add item to cart" button
 const addItemToCartHandler = (event) => {
   // Get product data
   const id = event.target.closest("div").dataset.id;
@@ -102,6 +106,37 @@ const addItemToCartHandler = (event) => {
     productsList.push(productData);
   }
 
+  console.log("ok");
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(productsList));
+};
+
+// Handle click event on "Decrease item from cart" button
+const decreaseItemToCartHandler = (event, isRemove = false) => {
+  // Get product data
+  const id = event.target.closest("div").dataset.id;
+  console.log(id);
+
+  // Get products list from local storage
+  const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
+  const productsList = rawProducts ? JSON.parse(rawProducts) : [];
+
+  const existingProduct = productsList.find((product) => product.id === id);
+
+  console.log(existingProduct);
+  if (isRemove) {
+    console.log("remove");
+    const newProductsList = productsList.filter(
+      (item) => item.id !== existingProduct.id
+    );
+    console.log(newProductsList);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newProductsList));
+    return;
+  }
+
+  if (existingProduct.quantity === 1) {
+    return;
+  }
+  existingProduct.quantity = existingProduct.quantity - 1;
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(productsList));
 };
 
@@ -136,57 +171,96 @@ const toggleUI = () => {
 };
 
 const renderCartUI = () => {
+  const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
+  const productsList = rawProducts ? JSON.parse(rawProducts) : null;
   const html = `
     <section class="section-cart none">
       <div class="container">
         <h3 class="section-title">Shopping cart</h3>
         <ul class="cart-products">
-          <li class=""></li>
+          <li class="cart-title">List</li>
         </ul>
         <div class="cart-actions"></div>
-        <div class="cart-progress"></div>
+        <div class="cart-progress">${calcTotalCost(productsList)}</div>
       </div>
     </section>
   `;
   document.body.insertAdjacentHTML("beforeend", html);
 };
+renderCartUI();
 
 const renderListProducts = () => {
   const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
   const productsList = rawProducts ? JSON.parse(rawProducts) : null;
   if (!productsList) return;
-  const productsContainerE = document.querySelector(".cart-products");
-  productsList.forEach((product) => {
+  console.log("ok");
+  productsList.forEach((product, i) => {
     const html = `
-      <li>
-        <div class="card card-cart">
-          <div class="card-img-box">
-            <img
-              class="card-img"
-              alt=${product.name}
-              src=${product.imgUrl}
-            />
-          </div>
-          <h4 class="card-name">${product.name}</h4>
-          <span class="cart-color">${product.color}</span>
-          <span class="cart-size">${product.size}</span>
-          <div class="cart-amount-form" data-id=${product.id}>
-            <button class="btn btn-cart-minus">-</button>
-            <span class="cart-amount">${product.quantity}</span>
-            <button class="btn btn-cart-plus">+</button>
-          </div>
-          <span class="price">$${product.price}</span>
-          <button class="btn btn-cart-remove">x</button>
+    <li>
+      <div class="card card-cart" data-id=${product.id}>
+        <div class="card-img-box">
+          <img
+            class="card-img"
+            alt=${product.name}
+            src=${product.imgUrl}
+          />
         </div>
-      </li>
-    `;
+        <h4 class="card-name">${product.name}</h4>
+        <span class="cart-color">${product.color}</span>
+        <span class="cart-size">${product.size}</span>
+        <div class="cart-amount-form" data-id=${product.id}>
+          <button class="btn btn-cart-minus">-</button>
+          <span class="cart-amount">${product.quantity}</span>
+          <button class="btn btn-cart-plus">+</button>
+        </div>
+        <span class="price">$${product.price}</span>
+        <button class="btn btn-cart-remove">x</button>
+      </div>
+    </li>
+  `;
+
+    const productsContainerE = document.querySelector(".cart-products");
     productsContainerE.insertAdjacentHTML("beforeend", html);
-    const increaseItemButton = document.querySelector(".btn-cart-plus");
-    const decreaseItemButton = document.querySelector(".btn-cart-minus");
-    const removeItemButton = document.querySelector(".btn-cart-remove");
-    increaseItemButton.addEventListener("click", addItemToCartHandler);
+
+    const increaseItemButton = document.querySelectorAll(".btn-cart-plus");
+    const decreaseItemButton = document.querySelectorAll(".btn-cart-minus");
+    const removeItemButton = document.querySelectorAll(".btn-cart-remove");
+    increaseItemButton[i].addEventListener("click", (event) => {
+      addItemToCartHandler(event);
+      rerenderListProducts();
+      rerenderTotalCost();
+    });
+
+    decreaseItemButton[i].addEventListener("click", (event) => {
+      decreaseItemToCartHandler(event);
+      rerenderListProducts();
+      rerenderTotalCost();
+    });
+
+    removeItemButton[i].addEventListener("click", (event) => {
+      decreaseItemToCartHandler(event, true);
+      rerenderListProducts();
+      rerenderTotalCost();
+    });
   });
 };
 
-renderCartUI();
 renderListProducts();
+
+const rerenderListProducts = () => {
+  const productsContainerE = document.querySelector(".cart-products");
+  productsContainerE.innerHTML = "";
+  productsContainerE.insertAdjacentHTML(
+    "beforeend",
+    '<li class="cart-title">List</li>'
+  );
+  renderListProducts();
+};
+
+const rerenderTotalCost = () => {
+  const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
+  const productsList = rawProducts ? JSON.parse(rawProducts) : null;
+  document.querySelector(".cart-progress").innerHTML = calcTotalCost(
+    productsList
+  );
+};
