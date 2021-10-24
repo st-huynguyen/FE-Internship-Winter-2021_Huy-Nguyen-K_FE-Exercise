@@ -3,7 +3,6 @@ button {
   border: 0;
   font-size: 2rem;
 }
-
 .btn,
 .btn:link,
 .btn:visited {
@@ -16,27 +15,35 @@ button {
   padding: 1.4rem 2.6rem;
   border-radius: 10rem;
   color: map-get($colors, "black");
-
-  @media only screen and (max-width: map-get($breakpoints, "small")) {
-    padding: 0.3rem 1.1rem;
-    font-size: 1rem;
-  }
 }
-
 .btn-outline:link,
 .btn-outline:visited {
   border: 1px solid map-get($colors, "gray-c");
-
-  @media only screen and (max-width: map-get($breakpoints, "small")) {
-    border: 0;
-    padding: 0;
-  }
 }
-
 .btn-primary {
   background-color: map-get($colors, "primary");
 }
-
 .btn-white {
   background-color: map-get($colors, "white");
+}
+@media only screen and (max-width: map-get($breakpoints, "wide")) {
+  .btn,
+  .btn:link,
+  .btn:visited {
+    padding: 1.2rem 2rem;
+    font-size: 1.2rem;
+  }
+}
+@media only screen and (max-width: map-get($breakpoints, "medium")) {
+  .btn,
+  .btn:link,
+  .btn:visited {
+    padding: 0.3rem 1.1rem;
+    font-size: 1rem;
+  }
+  .btn-outline:link,
+  .btn-outline:visited {
+    border: 0;
+    padding: 0;
+  }
 }

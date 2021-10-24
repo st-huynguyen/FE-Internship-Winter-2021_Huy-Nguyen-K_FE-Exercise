@@ -12,80 +12,82 @@
     <!-- Header -->
     <header>
       <div class="container">
-        <div class="navbar">
-          <h1 class="heading-1">
-            <a class="navbar-logo" href="#">
-              <img
-                class="navbar-logo-img pc-only"
-                src="./assets/logo.png"
-                alt="E-shop"
-              />
-              <img
-                class="navbar-logo-img mobile-only"
-                src="./assets/logo-black.png"
-                alt="E-shop"
-              />
-            </a>
-          </h1>
-        </div>
-        <nav class="nav">
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Men</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Women</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Kids</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="nav-actions">
-          <ul class="nav-actions-list">
-            <li class="nav-actions-item">
-              <a class="btn-icon-link" href="#">
+        <div class="nav-container">
+          <div class="navbar">
+            <h1 class="heading-1">
+              <a class="navbar-logo" href="#">
                 <img
-                  src="./assets/nav-icon-1.png"
-                  alt="Search"
-                  class="btn-icon-img pc-only"
+                  class="navbar-logo-img pc-only"
+                  src="./assets/logo.png"
+                  alt="E-shop"
                 />
                 <img
-                  src="./assets/nav-icon-2-black.png"
-                  alt="Cart"
-                  class="btn-icon-img mobile-only"
+                  class="navbar-logo-img sp-only"
+                  src="./assets/logo-black.png"
+                  alt="E-shop"
                 />
               </a>
-            </li>
-            <li class="nav-actions-item">
-              <a class="btn-icon-link" href="#">
-                <img
-                  src="./assets/nav-icon-2.png"
-                  alt="Cart"
-                  class="btn-icon-img pc-only"
-                />
-                <img
-                  src="./assets/nav-icon-3-black.png"
-                  alt="User"
-                  class="btn-icon-img mobile-only"
-                />
-              </a>
-            </li>
-            <li class="nav-actions-item">
-              <a class="btn-icon-link" href="#">
-                <img
-                  src="./assets/nav-icon-3.png"
-                  alt="User"
-                  class="btn-icon-img pc-only"
-                />
-                <img
-                  src="./assets/nav-icon-4-black.png"
-                  alt="Menu"
-                  class="btn-icon-img mobile-only"
-                />
-              </a>
-            </li>
-          </ul>
+            </h1>
+          </div>
+          <nav class="nav">
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Men</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Women</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Kids</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="nav-actions">
+            <ul class="nav-actions-list">
+              <li class="nav-actions-item">
+                <a class="btn-icon-link" href="#">
+                  <img
+                    src="./assets/nav-icon-1.png"
+                    alt="Search"
+                    class="btn-icon-img pc-only"
+                  />
+                  <img
+                    src="./assets/nav-icon-2-black.png"
+                    alt="Cart"
+                    class="btn-icon-img sp-only"
+                  />
+                </a>
+              </li>
+              <li class="nav-actions-item">
+                <a class="btn-icon-link" href="#">
+                  <img
+                    src="./assets/nav-icon-2.png"
+                    alt="Cart"
+                    class="btn-icon-img pc-only"
+                  />
+                  <img
+                    src="./assets/nav-icon-3-black.png"
+                    alt="User"
+                    class="btn-icon-img sp-only"
+                  />
+                </a>
+              </li>
+              <li class="nav-actions-item">
+                <a class="btn-icon-link" href="#">
+                  <img
+                    src="./assets/nav-icon-3.png"
+                    alt="User"
+                    class="btn-icon-img pc-only"
+                  />
+                  <img
+                    src="./assets/nav-icon-4-black.png"
+                    alt="Menu"
+                    class="btn-icon-img sp-only"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </header>
@@ -263,7 +265,7 @@
         <div class="container">
           <h3 class="section-title text-center">Why should you choose us?</h3>
           <ul class="row my-10">
-            <li class="col-3">
+            <li class="col">
               <div class="card card-benefit">
                 <img
                   class="card-img benefit-icon"
@@ -279,7 +281,7 @@
                 </div>
               </div>
             </li>
-            <li class="col-3">
+            <li class="col">
               <div class="card card-benefit">
                 <img
                   class="card-img benefit-icon"
@@ -295,7 +297,7 @@
                 </div>
               </div>
             </li>
-            <li class="col-3">
+            <li class="col">
               <div class="card card-benefit">
                 <img
                   class="card-img benefit-icon"
@@ -311,7 +313,7 @@
                 </div>
               </div>
             </li>
-            <li class="col-3">
+            <li class="col">
               <div class="card card-benefit">
                 <img
                   class="card-img benefit-icon"
@@ -390,21 +392,23 @@
       <section class="section-newsletter mb-0">
         <div class="container">
           <div class="row">
-            <div class="col-6">
-              <p class="section-title">
-                Subscribe to our newsletter andreceive exclusive offers every
-                week
-              </p>
-            </div>
-            <div class="col-6">
-              <form class="form newsletter-form">
-                <input
-                  class="form-input"
-                  type="text"
-                  placeholder="Enter your email"
-                />
-                <button class="btn btn-primary">Subscribe</button>
-              </form>
+            <div class="newsletter-container">
+              <div class="col-6">
+                <p class="section-title">
+                  Subscribe to our newsletter andreceive exclusive offers every
+                  week
+                </p>
+              </div>
+              <div class="col-6">
+                <form class="form newsletter-form">
+                  <input
+                    class="form-input"
+                    type="text"
+                    placeholder="Enter your email"
+                  />
+                  <button class="btn btn-primary">Subscribe</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>

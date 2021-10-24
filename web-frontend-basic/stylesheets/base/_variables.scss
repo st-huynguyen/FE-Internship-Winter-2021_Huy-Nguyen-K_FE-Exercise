@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
-
 // Fonts
 $font-primary: "Poppins", sans-serif;
 $font-size: (
@@ -11,7 +10,6 @@ $font-size: (
   "xl": 20px,
   "xxl": 24px,
 );
-
 // Colors
 $colors: (
   "primary": #fbb03b,
@@ -26,7 +24,6 @@ $colors: (
   "gray-e": #a8a8a8,
   "gray-f": #808080,
 );
-
 // Breakpoints
 $breakpoints: (
   "small": 480px,

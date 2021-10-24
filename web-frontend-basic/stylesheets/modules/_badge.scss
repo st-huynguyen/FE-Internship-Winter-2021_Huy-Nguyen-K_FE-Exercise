@@ -4,9 +4,10 @@
   background-color: map-get($colors, "red");
   padding: 0.7rem 1.4rem;
   border-radius: 100rem;
-
-  @media only screen and (max-width: map-get($breakpoints, "small")) {
+}
+@media only screen and (max-width: map-get($breakpoints, "medium")) {
+  .badge span {
     font-size: 0.8rem;
-    padding: 0.2rem 0.6rem;
+    padding: 0.3rem 0.6rem;
   }
 }
