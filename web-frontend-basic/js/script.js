@@ -72,18 +72,36 @@ products.forEach((product) => {
   productsContainerE.insertAdjacentHTML("beforeend", html);
 });
 
+const calcTotalCost = (productsList) => {
+  return productsList.reduce((acc, cur) => acc + cur.price * cur.quantity, 0);
+};
+
 // Handle click event on "Add to cart" button
 const addItemToCartHandler = (event) => {
+  // Get product data
   const id = event.target.closest("div").dataset.id;
   const productData = products.find((product) => product.id === id);
-  console.log(productData);
 
-  // Calculate quanlity and price???
-
-  // Local storage
+  // Get products list from local storage
   const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
   const productsList = rawProducts ? JSON.parse(rawProducts) : [];
-  productsList.push(productData);
+  console.log(productsList);
+
+  // If product already exists in cart -> increase quantity
+  // If not -> product quantity = 1
+  const existingProduct = productsList.find((product) => product.id === id);
+  console.log(existingProduct);
+  if (existingProduct) {
+    existingProduct.quantity = existingProduct.quantity + 1;
+    // existingProduct.price = +(
+    //   (existingProduct.price / (existingProduct.quantity - 1)) *
+    //   existingProduct.quantity
+    // ).toFixed(2);
+  } else {
+    productData.quantity = 1;
+    productsList.push(productData);
+  }
+
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(productsList));
 };
 
@@ -103,3 +121,72 @@ productCardListE.forEach((product) => {
   // Handle click event on "Add to cart" button
   addToCartButton.addEventListener("click", addItemToCartHandler);
 });
+
+// Toggle UI
+const toggleCartButton = document.querySelector(".btn-toggle-cart");
+toggleCartButton.addEventListener("click", (event) => {
+  toggleUI();
+});
+
+const toggleUI = () => {
+  document.querySelector("header").classList.toggle("none");
+  document.querySelector("main").classList.toggle("none");
+  document.querySelector("footer").classList.toggle("none");
+  document.querySelector(".section-cart").classList.toggle("none");
+};
+
+const renderCartUI = () => {
+  const html = `
+    <section class="section-cart none">
+      <div class="container">
+        <h3 class="section-title">Shopping cart</h3>
+        <ul class="cart-products">
+          <li class=""></li>
+        </ul>
+        <div class="cart-actions"></div>
+        <div class="cart-progress"></div>
+      </div>
+    </section>
+  `;
+  document.body.insertAdjacentHTML("beforeend", html);
+};
+
+const renderListProducts = () => {
+  const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
+  const productsList = rawProducts ? JSON.parse(rawProducts) : null;
+  if (!productsList) return;
+  const productsContainerE = document.querySelector(".cart-products");
+  productsList.forEach((product) => {
+    const html = `
+      <li>
+        <div class="card card-cart">
+          <div class="card-img-box">
+            <img
+              class="card-img"
+              alt=${product.name}
+              src=${product.imgUrl}
+            />
+          </div>
+          <h4 class="card-name">${product.name}</h4>
+          <span class="cart-color">${product.color}</span>
+          <span class="cart-size">${product.size}</span>
+          <div class="cart-amount-form" data-id=${product.id}>
+            <button class="btn btn-cart-minus">-</button>
+            <span class="cart-amount">${product.quantity}</span>
+            <button class="btn btn-cart-plus">+</button>
+          </div>
+          <span class="price">$${product.price}</span>
+          <button class="btn btn-cart-remove">x</button>
+        </div>
+      </li>
+    `;
+    productsContainerE.insertAdjacentHTML("beforeend", html);
+    const increaseItemButton = document.querySelector(".btn-cart-plus");
+    const decreaseItemButton = document.querySelector(".btn-cart-minus");
+    const removeItemButton = document.querySelector(".btn-cart-remove");
+    increaseItemButton.addEventListener("click", addItemToCartHandler);
+  });
+};
+
+renderCartUI();
+renderListProducts();

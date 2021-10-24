@@ -477,3 +477,36 @@ footer {
 .none {
   display: none;
 }
+
+.section-cart .section-title {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+.section-cart .container {
+  position: relative;
+}
+
+.cart-progress {
+  position: absolute;
+}
+
+.card.card-cart {
+  display: flex;
+  align-items: center;
+}
+
+.card.card-cart .card-img-box {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.card.card-cart .card-img {
+  width: 100%;
+}
+
+.card.card-cart .card-name {
+  margin-right: auto;
+}
