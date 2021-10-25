@@ -1,5 +1,8 @@
 const LOCAL_STORAGE_KEY = "products";
 
+const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
+const productsList = rawProducts ? JSON.parse(rawProducts) : [];
+
 // Products data
 const products = [
   {
@@ -39,6 +42,32 @@ const products = [
     size: "M",
   },
 ];
+
+// Handle click event on "Add item to cart" button
+const addItemToCartHandler = (productData) => {
+  // If product already exists in cart -> increase quantity
+  // If not -> add product to list and product.quantity = 1
+  const existingProduct = productsList.find(
+    (product) => product.id === productData.id
+  );
+  if (existingProduct) {
+    existingProduct.quantity = existingProduct.quantity + 1;
+  } else {
+    productData.quantity = 1;
+    productsList.push(productData);
+    renderProductItem(productData);
+  }
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(productsList));
+};
+
+// Toggle UI
+const toggleCartButtonE = document.querySelector(".btn-toggle-cart");
+toggleCartButtonE.addEventListener("click", () => {
+  document.querySelector("header").classList.toggle("none");
+  document.querySelector("main").classList.toggle("none");
+  document.querySelector("footer").classList.toggle("none");
+  document.querySelector(".section-cart").classList.toggle("none");
+});
 
 // Render list of products on homepage
 const renderListProductsInToday = () => {
@@ -115,24 +144,15 @@ const renderListProductsInToday = () => {
     $div.addEventListener("mouseout", (event) => {
       $button.classList.add("none");
     });
+    $button.addEventListener("click", () => {
+      addItemToCartHandler(product);
+      // renderProductsList();
+    });
   });
 };
-renderListProductsInToday();
-
-// Toggle UI
-const toggleCartButtonE = document.querySelector(".btn-toggle-cart");
-toggleCartButtonE.addEventListener("click", () => {
-  document.querySelector("header").classList.toggle("none");
-  document.querySelector("main").classList.toggle("none");
-  document.querySelector("footer").classList.toggle("none");
-  document.querySelector(".section-cart").classList.toggle("none");
-});
 
 // Render cart page
 const renderCartPage = () => {
-  const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
-  const productsList = rawProducts ? JSON.parse(rawProducts) : null;
-
   const $section = document.createElement("section");
   $section.classList.add("section-cart");
   $section.classList.add("none");
@@ -164,10 +184,10 @@ const renderCartPage = () => {
   $actions.innerHTML = 0;
   $actions.appendChild($total);
 };
-renderCartPage();
 
 // Render product item
-const renderProductItem = (product, $container) => {
+const renderProductItem = (product) => {
+  const $container = document.querySelector(".cart-products");
   const $li = document.createElement("li");
   $container.appendChild($li);
 
@@ -234,7 +254,20 @@ const renderProductItem = (product, $container) => {
   $buttonRemove.innerHTML = "x";
   $card.appendChild($buttonRemove);
 
-  $buttonDecrease.addEventListener("click", () => {
-    console.log("decrease");
+  $buttonIncrease.addEventListener("click", (event) => {
+    addItemToCartHandler(product);
+    $spanQuantity.innerHTML = ++product.quantity;
+    $spanPrice.innerHTML = product.price * product.quantity;
   });
 };
+
+const renderProductsList = () => {
+  productsList.forEach((product) => {
+    renderProductItem(product);
+  });
+};
+
+// Render
+renderListProductsInToday();
+renderCartPage();
+renderProductsList();
