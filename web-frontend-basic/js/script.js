@@ -1,4 +1,3 @@
-// Const
 const LOCAL_STORAGE_KEY = "products";
 
 // Products data
@@ -41,226 +40,201 @@ const products = [
   },
 ];
 
-// Render list of products
-const productsContainerE = document.querySelector(".products-list");
-products.forEach((product) => {
-  const newPrice = (product.price * (100 - product.discount) * 0.01).toFixed(2);
-  const html = `
-    <li class="col-3">
-      <div class="card card-product" data-id=${product.id}>
-        <button class="btn btn-add-to-cart none">Add to cart</button>
-        <img
-          class="card-img"
-          alt=${product.name}
-          src=${product.imgUrl}
-        />
-        <h4 class="card-name">${product.name}</h4>
-        ${
-          product.discount
-            ? `
-            <p class="price">
-              <span class="price new-price">$${newPrice}</span>
-              <span class="price old-price">$${product.price}</span>
-            </p>
-            <div class="badge">
-              <span>-${product.discount}%</span>
-            </div>`
-            : `<span class="price">$${product.price}</span>`
-        }
-      </div>
-    </li>`;
-  productsContainerE.insertAdjacentHTML("beforeend", html);
-});
+// Render list of products on homepage
+const renderListProductsInToday = () => {
+  const $productsList = document.querySelector(".products-list");
+  products.forEach((product) => {
+    const $li = document.createElement("li");
+    $li.classList.add("col-3");
+    $productsList.appendChild($li);
 
-const calcTotalCost = (productsList) => {
-  return productsList.length
-    ? +productsList
-        .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
-        .toFixed(2)
-    : 0;
-};
+    const $div = document.createElement("div");
+    $div.classList.add("card");
+    $div.classList.add("card-product");
+    $div.setAttribute("data-id", product.id);
+    $li.appendChild($div);
 
-// Handle click event on "Add item to cart" button
-const addItemToCartHandler = (event) => {
-  // Get product data
-  const id = event.target.closest("div").dataset.id;
-  const productData = products.find((product) => product.id === id);
+    const $button = document.createElement("button");
+    $button.classList.add("btn");
+    $button.classList.add("btn-add-to-cart");
+    $button.classList.add("none");
+    $button.innerHTML = "Add to cart";
+    $div.appendChild($button);
 
-  // Get products list from local storage
-  const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
-  const productsList = rawProducts ? JSON.parse(rawProducts) : [];
-  console.log(productsList);
+    const $img = document.createElement("img");
+    $img.classList.add("card-img");
+    $img.setAttribute("alt", product.name);
+    $img.setAttribute("src", product.imgUrl);
+    $div.appendChild($img);
 
-  // If product already exists in cart -> increase quantity
-  // If not -> product quantity = 1
-  const existingProduct = productsList.find((product) => product.id === id);
-  console.log(existingProduct);
-  if (existingProduct) {
-    existingProduct.quantity = existingProduct.quantity + 1;
-    // existingProduct.price = +(
-    //   (existingProduct.price / (existingProduct.quantity - 1)) *
-    //   existingProduct.quantity
-    // ).toFixed(2);
-  } else {
-    productData.quantity = 1;
-    productsList.push(productData);
-  }
+    const $h4 = document.createElement("h4");
+    $h4.classList.add("card-name");
+    $h4.innerHTML = product.name;
+    $div.appendChild($h4);
 
-  console.log("ok");
-  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(productsList));
-};
+    if (product.discount) {
+      const newPrice = (
+        product.price *
+        (100 - product.discount) *
+        0.01
+      ).toFixed(2);
 
-// Handle click event on "Decrease item from cart" button
-const decreaseItemToCartHandler = (event, isRemove = false) => {
-  // Get product data
-  const id = event.target.closest("div").dataset.id;
-  console.log(id);
+      const $p = document.createElement("p");
+      $p.classList.add("price");
+      $div.appendChild($p);
 
-  // Get products list from local storage
-  const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
-  const productsList = rawProducts ? JSON.parse(rawProducts) : [];
+      const $spanNewPrice = document.createElement("span");
+      $spanNewPrice.classList.add("price");
+      $spanNewPrice.classList.add("new-price");
+      $spanNewPrice.innerHTML = `$${newPrice}`;
+      $p.appendChild($spanNewPrice);
 
-  const existingProduct = productsList.find((product) => product.id === id);
+      const $spanOldPrice = document.createElement("span");
+      $spanOldPrice.classList.add("price");
+      $spanOldPrice.classList.add("old-price");
+      $spanOldPrice.innerHTML = `$${product.price}`;
+      $p.appendChild($spanOldPrice);
 
-  console.log(existingProduct);
-  if (isRemove) {
-    console.log("remove");
-    const newProductsList = productsList.filter(
-      (item) => item.id !== existingProduct.id
-    );
-    console.log(newProductsList);
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newProductsList));
-    return;
-  }
+      const $badge = document.createElement("p");
+      $badge.classList.add("badge");
+      $div.appendChild($badge);
 
-  if (existingProduct.quantity === 1) {
-    return;
-  }
-  existingProduct.quantity = existingProduct.quantity - 1;
-  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(productsList));
-};
+      const $discount = document.createElement("span");
+      $discount.innerHTML = `-${product.discount}%`;
+      $badge.appendChild($discount);
+    } else {
+      const $span = document.createElement("span");
+      $span.classList.add("price");
+      $span.innerHTML = `$${product.price}`;
+      $div.appendChild($span);
+    }
 
-const productCardListE = document.querySelectorAll(".card-product");
-productCardListE.forEach((product) => {
-  const addToCartButton = product.querySelector(".btn-add-to-cart");
-  if (!addToCartButton) return;
-
-  // Show "Add to cart" button when hover
-  product.addEventListener("mouseover", (event) => {
-    addToCartButton.classList.remove("none");
+    $div.addEventListener("mouseover", (event) => {
+      $button.classList.remove("none");
+    });
+    $div.addEventListener("mouseout", (event) => {
+      $button.classList.add("none");
+    });
   });
-  product.addEventListener("mouseout", (event) => {
-    addToCartButton.classList.add("none");
-  });
-
-  // Handle click event on "Add to cart" button
-  addToCartButton.addEventListener("click", addItemToCartHandler);
-});
+};
+renderListProductsInToday();
 
 // Toggle UI
-const toggleCartButton = document.querySelector(".btn-toggle-cart");
-toggleCartButton.addEventListener("click", (event) => {
-  toggleUI();
-});
-
-const toggleUI = () => {
+const toggleCartButtonE = document.querySelector(".btn-toggle-cart");
+toggleCartButtonE.addEventListener("click", () => {
   document.querySelector("header").classList.toggle("none");
   document.querySelector("main").classList.toggle("none");
   document.querySelector("footer").classList.toggle("none");
   document.querySelector(".section-cart").classList.toggle("none");
-};
+});
 
-const renderCartUI = () => {
+// Render cart page
+const renderCartPage = () => {
   const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
   const productsList = rawProducts ? JSON.parse(rawProducts) : null;
-  const html = `
-    <section class="section-cart none">
-      <div class="container">
-        <h3 class="section-title">Shopping cart</h3>
-        <ul class="cart-products">
-          <li class="cart-title">List</li>
-        </ul>
-        <div class="cart-actions"></div>
-        <div class="cart-progress">${calcTotalCost(productsList)}</div>
-      </div>
-    </section>
-  `;
-  document.body.insertAdjacentHTML("beforeend", html);
+
+  const $section = document.createElement("section");
+  $section.classList.add("section-cart");
+  $section.classList.add("none");
+  document.body.appendChild($section);
+
+  const $container = document.createElement("div");
+  $container.classList.add("container");
+  $section.appendChild($container);
+
+  const $h3 = document.createElement("h3");
+  $h3.classList.add("section-title");
+  $h3.innerHTML = "Shopping cart";
+  $container.appendChild($h3);
+
+  const $ul = document.createElement("ul");
+  $ul.classList.add("cart-products");
+  $container.appendChild($ul);
+
+  const $li = document.createElement("li");
+  $li.classList.add("cart-title");
+  $li.innerHTML = "List";
+  $ul.appendChild($li);
+
+  const $actions = document.createElement("div");
+  $actions.classList.add("cart-actions");
+  $container.appendChild($actions);
+
+  const $total = document.createElement("span");
+  $actions.innerHTML = 0;
+  $actions.appendChild($total);
 };
-renderCartUI();
+renderCartPage();
 
-const renderListProducts = () => {
-  const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
-  const productsList = rawProducts ? JSON.parse(rawProducts) : null;
-  if (!productsList) return;
-  console.log("ok");
-  productsList.forEach((product, i) => {
-    const html = `
-    <li>
-      <div class="card card-cart" data-id=${product.id}>
-        <div class="card-img-box">
-          <img
-            class="card-img"
-            alt=${product.name}
-            src=${product.imgUrl}
-          />
-        </div>
-        <h4 class="card-name">${product.name}</h4>
-        <span class="cart-color">${product.color}</span>
-        <span class="cart-size">${product.size}</span>
-        <div class="cart-amount-form" data-id=${product.id}>
-          <button class="btn btn-cart-minus">-</button>
-          <span class="cart-amount">${product.quantity}</span>
-          <button class="btn btn-cart-plus">+</button>
-        </div>
-        <span class="price">$${product.price}</span>
-        <button class="btn btn-cart-remove">x</button>
-      </div>
-    </li>
-  `;
+// Render product item
+const renderProductItem = (product, $container) => {
+  const $li = document.createElement("li");
+  $container.appendChild($li);
 
-    const productsContainerE = document.querySelector(".cart-products");
-    productsContainerE.insertAdjacentHTML("beforeend", html);
+  const $card = document.createElement("div");
+  $card.classList.add("card");
+  $card.classList.add("card-cart");
+  $card.setAttribute("data-id", product.id);
+  $li.appendChild($card);
 
-    const increaseItemButton = document.querySelectorAll(".btn-cart-plus");
-    const decreaseItemButton = document.querySelectorAll(".btn-cart-minus");
-    const removeItemButton = document.querySelectorAll(".btn-cart-remove");
-    increaseItemButton[i].addEventListener("click", (event) => {
-      addItemToCartHandler(event);
-      rerenderListProducts();
-      rerenderTotalCost();
-    });
+  const $imgBox = document.createElement("div");
+  $imgBox.classList.add("card-img-box");
+  $card.appendChild($imgBox);
 
-    decreaseItemButton[i].addEventListener("click", (event) => {
-      decreaseItemToCartHandler(event);
-      rerenderListProducts();
-      rerenderTotalCost();
-    });
+  const $img = document.createElement("img");
+  $img.classList.add("card-img");
+  $img.setAttribute("alt", product.name);
+  $img.setAttribute("src", product.imgUrl);
+  $imgBox.appendChild($img);
 
-    removeItemButton[i].addEventListener("click", (event) => {
-      decreaseItemToCartHandler(event, true);
-      rerenderListProducts();
-      rerenderTotalCost();
-    });
+  const $h4 = document.createElement("h4");
+  $h4.classList.add("card-name");
+  $h4.innerHTML = product.name;
+  $card.appendChild($h4);
+
+  const $spanColor = document.createElement("span");
+  $spanColor.classList.add("cart-color");
+  $spanColor.innerHTML = product.color;
+  $card.appendChild($spanColor);
+
+  const $spanSize = document.createElement("span");
+  $spanSize.classList.add("cart-size");
+  $spanSize.innerHTML = product.size;
+  $card.appendChild($spanSize);
+
+  const $spanAmountForm = document.createElement("span");
+  $spanAmountForm.classList.add("cart-amount-form");
+  $card.appendChild($spanAmountForm);
+
+  const $buttonDecrease = document.createElement("button");
+  $buttonDecrease.classList.add("btn");
+  $buttonDecrease.classList.add("btn-cart-decrease");
+  $buttonDecrease.innerHTML = "-";
+  $spanAmountForm.appendChild($buttonDecrease);
+
+  const $spanQuantity = document.createElement("span");
+  $spanQuantity.classList.add("cart-amount");
+  $spanQuantity.innerHTML = product.quantity;
+  $spanAmountForm.appendChild($spanQuantity);
+
+  const $buttonIncrease = document.createElement("button");
+  $buttonIncrease.classList.add("btn");
+  $buttonIncrease.classList.add("btn-cart-increase");
+  $buttonIncrease.innerHTML = "+";
+  $spanAmountForm.appendChild($buttonIncrease);
+
+  const $spanPrice = document.createElement("span");
+  $spanPrice.classList.add("price");
+  $spanPrice.innerHTML = product.price;
+  $card.appendChild($spanPrice);
+
+  const $buttonRemove = document.createElement("button");
+  $buttonRemove.classList.add("btn");
+  $buttonRemove.classList.add("btn-cart-increase");
+  $buttonRemove.innerHTML = "x";
+  $card.appendChild($buttonRemove);
+
+  $buttonDecrease.addEventListener("click", () => {
+    console.log("decrease");
   });
-};
-
-renderListProducts();
-
-const rerenderListProducts = () => {
-  const productsContainerE = document.querySelector(".cart-products");
-  productsContainerE.innerHTML = "";
-  productsContainerE.insertAdjacentHTML(
-    "beforeend",
-    '<li class="cart-title">List</li>'
-  );
-  renderListProducts();
-};
-
-const rerenderTotalCost = () => {
-  const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
-  const productsList = rawProducts ? JSON.parse(rawProducts) : null;
-  document.querySelector(".cart-progress").innerHTML = calcTotalCost(
-    productsList
-  );
 };
