@@ -816,7 +816,7 @@ footer .footer-copyright {
   margin-top: 8px;
   margin-bottom: 8px;
 }
-@media only screen and (max-width: ) {
+@media only screen and (max-width: 767px) {
   .my-2 {
     margin-top: 2px;
     margin-bottom: 2px;
@@ -827,7 +827,7 @@ footer .footer-copyright {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-@media only screen and (max-width: ) {
+@media only screen and (max-width: 767px) {
   .my-5 {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -838,7 +838,7 @@ footer .footer-copyright {
   margin-top: 40px;
   margin-bottom: 40px;
 }
-@media only screen and (max-width: ) {
+@media only screen and (max-width: 767px) {
   .my-10 {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -848,7 +848,7 @@ footer .footer-copyright {
 .mt-4 {
   margin-top: 16px;
 }
-@media only screen and (max-width: ) {
+@media only screen and (max-width: 767px) {
   .mt-4 {
     margin-top: 4px;
   }
@@ -857,7 +857,7 @@ footer .footer-copyright {
 .mt-12 {
   margin-top: 48px;
 }
-@media only screen and (max-width: ) {
+@media only screen and (max-width: 767px) {
   .mt-12 {
     margin-top: 12px;
   }
@@ -866,7 +866,7 @@ footer .footer-copyright {
 .mb-0 {
   margin-bottom: 0px;
 }
-@media only screen and (max-width: ) {
+@media only screen and (max-width: 767px) {
   .mb-0 {
     margin-bottom: 0px;
   }
@@ -875,7 +875,7 @@ footer .footer-copyright {
 .mb-12 {
   margin-bottom: 48px;
 }
-@media only screen and (max-width: ) {
+@media only screen and (max-width: 767px) {
   .mb-12 {
     margin-bottom: 12px;
   }
@@ -885,7 +885,7 @@ footer .footer-copyright {
   padding-top: 40px;
   padding-bottom: 40px;
 }
-@media only screen and (max-width: ) {
+@media only screen and (max-width: 767px) {
   .py-10 {
     padding-top: 10px;
     padding-bottom: 10px;
