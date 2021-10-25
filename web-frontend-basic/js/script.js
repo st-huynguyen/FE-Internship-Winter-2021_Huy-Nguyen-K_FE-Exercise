@@ -257,7 +257,7 @@ const renderProductItem = (product) => {
   $buttonIncrease.addEventListener("click", (event) => {
     addItemToCartHandler(product);
     $spanQuantity.innerHTML = ++product.quantity;
-    $spanPrice.innerHTML = product.price * product.quantity;
+    $spanPrice.innerHTML = (product.price * product.quantity).toFixed(2);
   });
 };
 
