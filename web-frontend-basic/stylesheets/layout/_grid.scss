@@ -18,7 +18,7 @@
 }
 $columns: 12;
 @for $i from 1 through $columns {
-  .col-#{$i} {
+  .col-md-#{$i} {
     flex: 0 0 auto;
     width: calc($i / $columns * 100%);
   }
@@ -33,15 +33,11 @@ $columns: 12;
   .row > * {
     padding: 0 4px;
   }
-  .col-3 {
-    width: 50%;
-  }
-  .col,
-  .col-4,
-  .col-5,
-  .col-6,
-  .col-7 {
-    flex: 0 0 auto;
-    width: 100%;
+  $columns: 12;
+  @for $i from 1 through $columns {
+    .col-xs-#{$i} {
+      flex: 0 0 auto;
+      width: calc($i / $columns * 100%);
+    }
   }
 }
