@@ -18,6 +18,10 @@
 }
 $columns: 12;
 @for $i from 1 through $columns {
+  .col-#{$i} {
+    flex: 0 0 auto;
+    width: calc($i / $columns * 100%);
+  }
   .col-md-#{$i} {
     flex: 0 0 auto;
     width: calc($i / $columns * 100%);
