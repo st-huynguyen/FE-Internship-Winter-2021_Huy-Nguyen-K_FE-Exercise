@@ -106,25 +106,32 @@ $totalQuantity.innerHTML = 0;
 $toggleCartButton.closest("li").appendChild($totalQuantity);
 $toggleCartButton.addEventListener("click", () => {
   onCartpage = !onCartpage;
-
   document.querySelector("main").classList.toggle("none");
   document.querySelector("footer").classList.toggle("none");
   document.querySelector(".section-cart").classList.toggle("none");
-
-  // document.querySelector("header").classList.toggle("none");
-  // Update header
+  document.querySelector("header").classList.toggle("header-cart");
+  // Update header img to black color
   const $logo = document.querySelector(".navbar-logo-img");
   const $searchButton = document.querySelector(".btn-search");
-  const $userButton = document.querySelector(".btn-search");
+  const $userButton = document.querySelector(".btn-user");
+  const $navLinksList = document.querySelectorAll(".nav-link");
+  $navLinksList.forEach((link) => link.classList.toggle("text-black"));
   // If user on cart page
   if (onCartpage) {
     $logo.setAttribute("src", "./assets/logo-black.png");
+    $searchButton.setAttribute("src", "./assets/nav-icon-1-black.png");
+    $toggleCartButton.setAttribute("src", "./assets/nav-icon-2-black.png");
+    $userButton.setAttribute("src", "./assets/nav-icon-3-black.png");
+
+    renderProductsList();
+    renderTotalCost();
+  } else {
+    // If user on homepage
+    $logo.setAttribute("src", "./assets/logo.png");
+    $searchButton.setAttribute("src", "./assets/nav-icon-1.png");
+    $toggleCartButton.setAttribute("src", "./assets/nav-icon-2.png");
+    $userButton.setAttribute("src", "./assets/nav-icon-3.png");
   }
-
-  // If user on homepage
-
-  renderProductsList();
-  renderTotalCost();
 });
 
 // Render list of products on homepage

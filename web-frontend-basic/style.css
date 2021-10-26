@@ -519,3 +519,17 @@ footer {
   border-radius: 10rem;
   font-size: 1rem;
 }
+
+.text-black {
+  color: var(--black-color) !important;
+}
+
+.header-cart {
+  top: 0;
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--gray-50-color);
+}
+
+.section-cart {
+  margin-top: 16rem;
+}
