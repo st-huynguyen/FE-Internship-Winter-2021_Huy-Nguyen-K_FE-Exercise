@@ -103,7 +103,9 @@ const $toggleCartButton = document.querySelector(".btn-toggle-cart");
 const $totalQuantity = document.createElement("span");
 $totalQuantity.classList.add("total-quantity");
 $totalQuantity.innerHTML = 0;
-$toggleCartButton.closest("li").appendChild($totalQuantity);
+$toggleCartContainer = $toggleCartButton.closest("li");
+$toggleCartContainer.appendChild($totalQuantity);
+$toggleCartContainer.style.position = "relative";
 $toggleCartButton.addEventListener("click", () => {
   onCartpage = !onCartpage;
   document.querySelector("main").classList.toggle("none");
@@ -122,7 +124,6 @@ $toggleCartButton.addEventListener("click", () => {
     $searchButton.setAttribute("src", "./assets/nav-icon-1-black.png");
     $toggleCartButton.setAttribute("src", "./assets/nav-icon-2-black.png");
     $userButton.setAttribute("src", "./assets/nav-icon-3-black.png");
-
     renderProductsList();
     renderTotalCost();
   } else {
