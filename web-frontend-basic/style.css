@@ -510,3 +510,12 @@ footer {
 .card.card-cart .card-name {
   margin-right: auto;
 }
+
+.total-quantity {
+  position: absolute;
+  padding: 0.5rem 0.8rem;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border-radius: 10rem;
+  font-size: 1rem;
+}
