@@ -1,4 +1,5 @@
 const LOCAL_STORAGE_KEY = "products";
+let onCartpage = false;
 
 // Products data
 const products = [
@@ -104,10 +105,24 @@ $totalQuantity.classList.add("total-quantity");
 $totalQuantity.innerHTML = 0;
 $toggleCartButton.closest("li").appendChild($totalQuantity);
 $toggleCartButton.addEventListener("click", () => {
-  // document.querySelector("header").classList.toggle("none");
+  onCartpage = !onCartpage;
+
   document.querySelector("main").classList.toggle("none");
   document.querySelector("footer").classList.toggle("none");
   document.querySelector(".section-cart").classList.toggle("none");
+
+  // document.querySelector("header").classList.toggle("none");
+  // Update header
+  const $logo = document.querySelector(".navbar-logo-img");
+  const $searchButton = document.querySelector(".btn-search");
+  const $userButton = document.querySelector(".btn-search");
+  // If user on cart page
+  if (onCartpage) {
+    $logo.setAttribute("src", "./assets/logo-black.png");
+  }
+
+  // If user on homepage
+
   renderProductsList();
   renderTotalCost();
 });
