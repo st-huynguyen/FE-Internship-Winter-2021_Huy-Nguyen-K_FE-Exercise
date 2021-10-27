@@ -105,7 +105,7 @@ $totalQuantity.classList.add("total-quantity");
 $totalQuantity.innerHTML = 0;
 $toggleCartContainer = $toggleCartButton.closest("li");
 $toggleCartContainer.appendChild($totalQuantity);
-$toggleCartContainer.style.position = "relative";
+$toggleCartContainer.classList.add("position-relative");
 $toggleCartButton.addEventListener("click", () => {
   onCartpage = !onCartpage;
   document.querySelector("main").classList.toggle("none");
@@ -233,8 +233,39 @@ const renderCartPage = () => {
   $h3.innerHTML = "Shopping cart";
   $container.appendChild($h3);
 
+  const $div = document.createElement("div");
+  $div.classList.add("row");
+  $div.classList.add("cart-thead");
+  $container.appendChild($div);
+
+  const $spanProduct = document.createElement("span");
+  $spanProduct.classList.add("col-5");
+  $spanProduct.innerHTML = "Product";
+  $div.appendChild($spanProduct);
+
+  const $spanColor = document.createElement("span");
+  $spanColor.classList.add("col-1");
+  $spanColor.innerHTML = "Color";
+  $div.appendChild($spanColor);
+
+  const $spanSize = document.createElement("span");
+  $spanSize.classList.add("col-1");
+  $spanSize.innerHTML = "Size";
+  $div.appendChild($spanSize);
+
+  const $spanAmount = document.createElement("span");
+  $spanAmount.classList.add("col-2");
+  $spanAmount.innerHTML = "Amount";
+  $div.appendChild($spanAmount);
+
+  const $spanPrice = document.createElement("span");
+  $spanPrice.classList.add("col-2");
+  $spanPrice.innerHTML = "Price";
+  $div.appendChild($spanPrice);
+
   const $ul = document.createElement("ul");
   $ul.classList.add("cart-products");
+  $ul.classList.add("row");
   $container.appendChild($ul);
 
   const $li = document.createElement("li");
@@ -244,12 +275,57 @@ const renderCartPage = () => {
 
   const $actions = document.createElement("div");
   $actions.classList.add("cart-actions");
+  $actions.classList.add("row");
   $container.appendChild($actions);
+
+  const $returnLink = document.createElement("a");
+  $returnLink.classList.add("btn");
+  $returnLink.classList.add("cart-return-link");
+  $returnLink.classList.add("col-4");
+  $returnLink.setAttribute("href", "#");
+  $returnLink.innerHTML = "Continue Shopping";
+  $actions.appendChild($returnLink);
+
+  const $form = document.createElement("form");
+  $form.classList.add("form");
+  $form.classList.add("col-3");
+  $actions.appendChild($form);
+
+  const $input = document.createElement("input");
+  $input.classList.add("form-input");
+  $input.placeholder = "Promo Code";
+  $form.appendChild($input);
+
+  const $button = document.createElement("button");
+  $button.classList.add("form-btn");
+  $button.classList.add("btn");
+  $button.innerHTML = "&#10148;";
+  $form.appendChild($button);
+
+  const $totalText = document.createElement("span");
+  $totalText.classList.add("total-text");
+  $totalText.classList.add("col-2");
+  $totalText.innerHTML = "Total cost";
+  $actions.appendChild($totalText);
 
   const $total = document.createElement("span");
   $total.classList.add("total-cost");
-  $total.innerHTML = 0;
+  $total.classList.add("col-1");
+  $total.classList.add("price");
   $actions.appendChild($total);
+
+  const $checkoutContainer = document.createElement("div");
+  $checkoutContainer.classList.add("col-2");
+  $checkoutContainer.classList.add("flex");
+  $actions.appendChild($checkoutContainer);
+
+  const $checkoutButton = document.createElement("a");
+  $checkoutButton.setAttribute("href", "#");
+  $checkoutButton.classList.add("btn");
+  $checkoutButton.classList.add("btn-primary");
+  $checkoutButton.classList.add("btn-checkout");
+  $checkoutButton.innerHTML = "Checkout";
+  $checkoutContainer.appendChild($checkoutButton);
 };
 
 // Render total cost
@@ -257,7 +333,7 @@ const renderTotalCost = () => {
   const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
   const productsList = rawProducts ? JSON.parse(rawProducts) : [];
   $total = document.querySelector(".total-cost");
-  $total.innerHTML = calcTotalCost(productsList);
+  $total.innerHTML = "$" + calcTotalCost(productsList);
 };
 
 // Render total quantity
@@ -277,12 +353,18 @@ const renderProductItem = (product) => {
   const $card = document.createElement("div");
   $card.classList.add("card");
   $card.classList.add("card-cart");
+  $card.classList.add("row");
   $card.setAttribute("data-id", product.id);
   $li.appendChild($card);
 
+  const $div = document.createElement("div");
+  $div.classList.add("col-5");
+  $div.classList.add("flex-row-i-center");
+  $card.appendChild($div);
+
   const $imgBox = document.createElement("div");
   $imgBox.classList.add("card-img-box");
-  $card.appendChild($imgBox);
+  $div.appendChild($imgBox);
 
   const $img = document.createElement("img");
   $img.classList.add("card-img");
@@ -290,24 +372,39 @@ const renderProductItem = (product) => {
   $img.setAttribute("src", product.imgUrl);
   $imgBox.appendChild($img);
 
+  const $headingDiv = document.createElement("div");
+  $headingDiv.classList.add("flex-column");
+  $div.appendChild($headingDiv);
+
   const $h4 = document.createElement("h4");
   $h4.classList.add("card-name");
   $h4.innerHTML = product.name;
-  $card.appendChild($h4);
+  $headingDiv.appendChild($h4);
+
+  const $span = document.createElement("span");
+  $span.classList.add("cart-id");
+  $span.innerHTML = product.id;
+  $headingDiv.appendChild($span);
 
   const $spanColor = document.createElement("span");
   $spanColor.classList.add("cart-color");
+  $spanColor.classList.add("col-1");
   $spanColor.innerHTML = product.color;
   $card.appendChild($spanColor);
 
   const $spanSize = document.createElement("span");
   $spanSize.classList.add("cart-size");
+  $spanSize.classList.add("col-1");
   $spanSize.innerHTML = product.size;
   $card.appendChild($spanSize);
 
+  const $amountContainer = document.createElement("div");
+  $amountContainer.classList.add("col-2");
+  $card.appendChild($amountContainer);
+
   const $spanAmountForm = document.createElement("span");
   $spanAmountForm.classList.add("cart-amount-form");
-  $card.appendChild($spanAmountForm);
+  $amountContainer.appendChild($spanAmountForm);
 
   const $buttonDecrease = document.createElement("button");
   $buttonDecrease.classList.add("btn");
@@ -332,43 +429,58 @@ const renderProductItem = (product) => {
   if (product.discount) {
     $spanNewPrice.classList.add("price");
     $spanNewPrice.classList.add("new-price");
-    $spanNewPrice.innerHTML = (
-      product.price *
-      (100 - product.discount) *
-      0.01 *
-      product.quantity
-    ).toFixed(2);
-    $card.appendChild($spanNewPrice);
-
-    $spanOldPrice.classList.add("price");
-    $spanOldPrice.classList.add("old-price");
-    $spanOldPrice.innerHTML = (product.price * product.quantity).toFixed(2);
-    $card.appendChild($spanOldPrice);
-  } else {
-    $spanPrice.classList.add("price");
-    $spanPrice.innerHTML = (product.price * product.quantity).toFixed(2);
-    $card.appendChild($spanPrice);
-  }
-
-  const $buttonRemove = document.createElement("button");
-  $buttonRemove.classList.add("btn");
-  $buttonRemove.classList.add("btn-cart-increase");
-  $buttonRemove.innerHTML = "x";
-  $card.appendChild($buttonRemove);
-
-  $buttonIncrease.addEventListener("click", (event) => {
-    addItemToCartHandler(product);
-    $spanQuantity.innerHTML = ++product.quantity;
-    if (product.discount) {
-      $spanNewPrice.innerHTML = (
+    $spanNewPrice.classList.add("col-1");
+    $spanNewPrice.innerHTML =
+      "$" +
+      (
         product.price *
         (100 - product.discount) *
         0.01 *
         product.quantity
       ).toFixed(2);
-      $spanOldPrice.innerHTML = (product.price * product.quantity).toFixed(2);
+    $card.appendChild($spanNewPrice);
+
+    $spanOldPrice.classList.add("price");
+    $spanOldPrice.classList.add("old-price");
+    $spanOldPrice.classList.add("col-1");
+    $spanOldPrice.innerHTML =
+      "$" + (product.price * product.quantity).toFixed(2);
+    $card.appendChild($spanOldPrice);
+  } else {
+    $spanPrice.classList.add("price");
+    $spanPrice.classList.add("col-2");
+    $spanPrice.innerHTML = "$" + (product.price * product.quantity).toFixed(2);
+    $card.appendChild($spanPrice);
+  }
+
+  const $removeContainer = document.createElement("div");
+  $removeContainer.classList.add("col-1");
+  $removeContainer.classList.add("flex");
+  $card.appendChild($removeContainer);
+
+  const $buttonRemove = document.createElement("button");
+  $buttonRemove.classList.add("btn");
+  $buttonRemove.classList.add("btn-cart-remove");
+  $buttonRemove.innerHTML = "&#10005;";
+  $removeContainer.appendChild($buttonRemove);
+
+  $buttonIncrease.addEventListener("click", (event) => {
+    addItemToCartHandler(product);
+    $spanQuantity.innerHTML = ++product.quantity;
+    if (product.discount) {
+      $spanNewPrice.innerHTML =
+        "$" +
+        (
+          product.price *
+          (100 - product.discount) *
+          0.01 *
+          product.quantity
+        ).toFixed(2);
+      $spanOldPrice.innerHTML =
+        "$" + (product.price * product.quantity).toFixed(2);
     } else {
-      $spanPrice.innerHTML = (product.price * product.quantity).toFixed(2);
+      $spanPrice.innerHTML =
+        "$" + (product.price * product.quantity).toFixed(2);
     }
     renderTotalCost();
     renderTotalQuantity();
@@ -379,15 +491,19 @@ const renderProductItem = (product) => {
     if (product.quantity === 1) return;
     $spanQuantity.innerHTML = --product.quantity;
     if (product.discount) {
-      $spanNewPrice.innerHTML = (
-        product.price *
-        (100 - product.discount) *
-        0.01 *
-        product.quantity
-      ).toFixed(2);
-      $spanOldPrice.innerHTML = (product.price * product.quantity).toFixed(2);
+      $spanNewPrice.innerHTML =
+        "$" +
+        (
+          product.price *
+          (100 - product.discount) *
+          0.01 *
+          product.quantity
+        ).toFixed(2);
+      $spanOldPrice.innerHTML =
+        "$" + (product.price * product.quantity).toFixed(2);
     } else {
-      $spanPrice.innerHTML = (product.price * product.quantity).toFixed(2);
+      $spanPrice.innerHTML =
+        "$" + (product.price * product.quantity).toFixed(2);
     }
     renderTotalCost();
     renderTotalQuantity();
