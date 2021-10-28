@@ -41,12 +41,26 @@ const products = [
   },
 ];
 
+// Calculate total quantity products from cart
 const calcTotalQuantity = (productsList) => {
   return productsList
     ? +productsList.reduce((acc, cur) => acc + cur.quantity, 0).toFixed(2)
-    : null;
+    : 0;
 };
 
+// Calculate price each product
+const calcProductPrice = (product) => {
+  return product.discount
+    ? (
+        product.price *
+        (100 - product.discount) *
+        0.01 *
+        product.quantity
+      ).toFixed(2)
+    : (product.price * product.quantity).toFixed(2);
+};
+
+// Calculate total cost from cart
 const calcTotalCost = (productsList) => {
   return productsList
     ? +productsList
@@ -59,10 +73,15 @@ const calcTotalCost = (productsList) => {
     : 0;
 };
 
+// Get all products from local storage
+const getProductsList = () => {
+  const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
+  return rawProducts ? JSON.parse(rawProducts) : [];
+};
+
 // Handle click event on "Add item or increase quantity to cart" button
 const addItemToCartHandler = (productData) => {
-  const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
-  const productsList = rawProducts ? JSON.parse(rawProducts) : [];
+  const productsList = getProductsList();
   const existingProduct = productsList.find(
     (product) => product.id === productData.id
   );
@@ -77,8 +96,7 @@ const addItemToCartHandler = (productData) => {
 
 // Handle click event on "Remove item or decrease quantity to cart" button
 const removeItemToCartHandler = (productData, isRemove = false) => {
-  const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
-  const productsList = rawProducts ? JSON.parse(rawProducts) : [];
+  const productsList = getProductsList();
   if (isRemove) {
     const newProductsList = productsList.filter(
       (product) => product.id !== productData.id
@@ -89,11 +107,9 @@ const removeItemToCartHandler = (productData, isRemove = false) => {
   const existingProduct = productsList.find(
     (product) => product.id === productData.id
   );
-  if (existingProduct.quantity === 1) {
-    return;
-  } else {
-    existingProduct.quantity = existingProduct.quantity - 1;
-  }
+
+  existingProduct.quantity = existingProduct.quantity - 1;
+
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(productsList));
 };
 
@@ -106,13 +122,15 @@ $totalQuantity.innerHTML = 0;
 $toggleCartContainer = $toggleCartButton.closest('li');
 $toggleCartContainer.appendChild($totalQuantity);
 $toggleCartContainer.classList.add('position-relative');
+
+// Toggle UI when click on cart button
 $toggleCartButton.addEventListener('click', () => {
   onCartpage = !onCartpage;
   document.querySelector('main').classList.toggle('none');
   document.querySelector('footer').classList.toggle('none');
   document.querySelector('.section-cart').classList.toggle('none');
+  // Update page header
   document.querySelector('header').classList.toggle('header-cart');
-  // Update header img to black color
   const $logo = document.querySelector('.navbar-logo-img');
   const $searchButton = document.querySelector('.btn-search');
   const $userButton = document.querySelector('.btn-user');
@@ -204,6 +222,7 @@ const renderListProductsInToday = () => {
       $div.appendChild($span);
     }
 
+    // Add event when user hover over product image
     $div.addEventListener('mouseover', (event) => {
       $button.classList.remove('none');
     });
@@ -330,16 +349,14 @@ const renderCartPage = () => {
 
 // Render total cost
 const renderTotalCost = () => {
-  const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
-  const productsList = rawProducts ? JSON.parse(rawProducts) : [];
+  const productsList = getProductsList();
   $total = document.querySelector('.total-cost');
   $total.innerHTML = '$' + calcTotalCost(productsList);
 };
 
 // Render total quantity
 const renderTotalQuantity = () => {
-  const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
-  const productsList = rawProducts ? JSON.parse(rawProducts) : [];
+  const productsList = getProductsList();
   $quantity = document.querySelector('.total-quantity');
   $quantity.innerHTML = calcTotalQuantity(productsList);
 };
@@ -430,26 +447,18 @@ const renderProductItem = (product) => {
     $spanNewPrice.classList.add('price');
     $spanNewPrice.classList.add('new-price');
     $spanNewPrice.classList.add('col-1');
-    $spanNewPrice.innerHTML =
-      '$' +
-      (
-        product.price *
-        (100 - product.discount) *
-        0.01 *
-        product.quantity
-      ).toFixed(2);
+    $spanNewPrice.innerHTML = '$' + calcProductPrice(product);
     $card.appendChild($spanNewPrice);
 
     $spanOldPrice.classList.add('price');
     $spanOldPrice.classList.add('old-price');
     $spanOldPrice.classList.add('col-1');
-    $spanOldPrice.innerHTML =
-      '$' + (product.price * product.quantity).toFixed(2);
+    $spanOldPrice.innerHTML = '$' + calcProductPrice(product);
     $card.appendChild($spanOldPrice);
   } else {
     $spanPrice.classList.add('price');
     $spanPrice.classList.add('col-2');
-    $spanPrice.innerHTML = '$' + (product.price * product.quantity).toFixed(2);
+    $spanPrice.innerHTML = '$' + calcProductPrice(product);
     $card.appendChild($spanPrice);
   }
 
@@ -464,51 +473,33 @@ const renderProductItem = (product) => {
   $buttonRemove.innerHTML = '&#10005;';
   $removeContainer.appendChild($buttonRemove);
 
+  const updateProductPriceUI = () => {
+    if (product.discount) {
+      $spanNewPrice.innerHTML = '$' + calcProductPrice(product);
+      $spanOldPrice.innerHTML = '$' + calcProductPrice(product);
+    } else {
+      $spanPrice.innerHTML = '$' + calcProductPrice(product);
+    }
+    renderTotalCost();
+    renderTotalQuantity();
+  };
+
+  // Increase item
   $buttonIncrease.addEventListener('click', (event) => {
     addItemToCartHandler(product);
     $spanQuantity.innerHTML = ++product.quantity;
-    if (product.discount) {
-      $spanNewPrice.innerHTML =
-        '$' +
-        (
-          product.price *
-          (100 - product.discount) *
-          0.01 *
-          product.quantity
-        ).toFixed(2);
-      $spanOldPrice.innerHTML =
-        '$' + (product.price * product.quantity).toFixed(2);
-    } else {
-      $spanPrice.innerHTML =
-        '$' + (product.price * product.quantity).toFixed(2);
-    }
-    renderTotalCost();
-    renderTotalQuantity();
+    updateProductPriceUI();
   });
 
+  // Decrease item
   $buttonDecrease.addEventListener('click', (event) => {
-    removeItemToCartHandler(product);
     if (product.quantity === 1) return;
+    removeItemToCartHandler(product);
     $spanQuantity.innerHTML = --product.quantity;
-    if (product.discount) {
-      $spanNewPrice.innerHTML =
-        '$' +
-        (
-          product.price *
-          (100 - product.discount) *
-          0.01 *
-          product.quantity
-        ).toFixed(2);
-      $spanOldPrice.innerHTML =
-        '$' + (product.price * product.quantity).toFixed(2);
-    } else {
-      $spanPrice.innerHTML =
-        '$' + (product.price * product.quantity).toFixed(2);
-    }
-    renderTotalCost();
-    renderTotalQuantity();
+    updateProductPriceUI();
   });
 
+  // Remove item
   $buttonRemove.addEventListener('click', (event) => {
     removeItemToCartHandler(product, true);
     $container.removeChild($li);
@@ -520,8 +511,7 @@ const renderProductItem = (product) => {
 const renderProductsList = () => {
   const $container = document.querySelector('.cart-products');
   $container.innerHTML = '';
-  const rawProducts = localStorage.getItem(LOCAL_STORAGE_KEY);
-  const productsList = rawProducts ? JSON.parse(rawProducts) : [];
+  const productsList = getProductsList();
   productsList.forEach((product) => {
     renderProductItem(product);
   });
