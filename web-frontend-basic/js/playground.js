@@ -49,9 +49,9 @@ console.log(absoluteDifference(22));
 
 const divisibleBy3 = function (str, isEven = false) {
   // Calculate the sum of all numbers in the input string
-  const nums = str.split("");
+  const nums = str.split('');
   const sum = nums.reduce(
-    (acc, cur) => (cur !== "*" ? Number(cur) + acc : acc),
+    (acc, cur) => (cur !== '*' ? Number(cur) + acc : acc),
     0
   );
 
@@ -71,16 +71,16 @@ const divisibleBy3 = function (str, isEven = false) {
   const filterArr = isEven ? numsArr.filter((item) => item % 2 === 0) : numsArr;
 
   // Replace * and return array of results
-  const index = nums.indexOf("*");
+  const index = nums.indexOf('*');
   return filterArr.map(function (item) {
     nums[index] = item;
-    return nums.join("");
+    return nums.join('');
   });
 };
 
-console.log(divisibleBy3("1*9"));
-console.log(divisibleBy3("125*"));
-console.log(divisibleBy3("1234567890*"));
+console.log(divisibleBy3('1*9'));
+console.log(divisibleBy3('125*'));
+console.log(divisibleBy3('1234567890*'));
 
 // --------------------------------------------------
 
@@ -97,8 +97,8 @@ console.log(divisibleBy3("1234567890*"));
 // ```
 
 const divisibleBy6 = function (str) {
-  const nums = str.split("");
-  const index = nums.indexOf("*");
+  const nums = str.split('');
+  const index = nums.indexOf('*');
   // If * is not the last index
   if (index !== nums.length - 1) {
     if (nums[nums.length - 1] % 2) {
@@ -113,7 +113,7 @@ const divisibleBy6 = function (str) {
   }
 };
 
-console.log(divisibleBy6("1*9"));
-console.log(divisibleBy6("12*"));
-console.log(divisibleBy6("125*"));
-console.log(divisibleBy6("1234567890*"));
+console.log(divisibleBy6('1*9'));
+console.log(divisibleBy6('12*'));
+console.log(divisibleBy6('125*'));
+console.log(divisibleBy6('1234567890*'));

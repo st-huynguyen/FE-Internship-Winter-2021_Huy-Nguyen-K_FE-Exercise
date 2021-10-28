@@ -15,7 +15,7 @@ console.log(sumOfOdds([1, 2, 3, 4]));
 const splitString = function (str) {
   return str.length > 15 ? `${str.slice(0, 10)}...` : null;
 };
-console.log(splitString("the crazy fox jumps over the lazy dog"));
+console.log(splitString('the crazy fox jumps over the lazy dog'));
 
 // ----------------------------------------------------------------------------------
 // 3. Viết 1 function có tác dụng biến 1 chuỗi thành chỉ viết hoa từ đầu tiên.
@@ -23,13 +23,13 @@ console.log(splitString("the crazy fox jumps over the lazy dog"));
 // Kết quả là 1 chuỗi mới chỉ viết hoa từ đầu tiên. Ví dụ "techMaster" sẽ được convert thành "Techmaster".
 const upperCaseFirstLetter = function (str) {
   return str
-    .split("")
+    .split('')
     .map((item, index) =>
       index === 0 ? item.toUpperCase() : item.toLowerCase()
     )
-    .join("");
+    .join('');
 };
-console.log(upperCaseFirstLetter("techMaster"));
+console.log(upperCaseFirstLetter('techMaster'));
 
 // ----------------------------------------------------------------------------------
 // 4. Viết 1 function lấy ra 1 số nhỏ nhất trong 1 mảng các số.
@@ -52,12 +52,12 @@ function Person(name, age, school) {
   this.age = age;
   this.school = school;
 }
-const john = new Person("John", 26, "Cambridge");
-const mark = new Person("Mark", 30, "Oxford");
-const bill = new Person("Bill", 28, "Havard");
+const john = new Person('John', 26, 'Cambridge');
+const mark = new Person('Mark', 30, 'Oxford');
+const bill = new Person('Bill', 28, 'Havard');
 
 Person.prototype.coding = function () {
-  this.age >= 28 ? console.log("coding master") : console.log("learning code");
+  this.age >= 28 ? console.log('coding master') : console.log('learning code');
 };
 john.coding();
 mark.coding();
@@ -82,7 +82,7 @@ console.log(findSameValue([1, 2, 3, 4, 6, 3], [2, 3, 5, 6]));
 // output: 10
 const sum = function (num) {
   return String(num)
-    .split("")
+    .split('')
     .reduce(function (acc, cur) {
       return acc + Number(cur);
     }, 0);
