@@ -22,12 +22,7 @@ console.log(splitString('the crazy fox jumps over the lazy dog'));
 // Tham số truyền vào là 1 chuỗi.
 // Kết quả là 1 chuỗi mới chỉ viết hoa từ đầu tiên. Ví dụ "techMaster" sẽ được convert thành "Techmaster".
 const upperCaseFirstLetter = function (str) {
-  return str
-    .split('')
-    .map((item, index) =>
-      index === 0 ? item.toUpperCase() : item.toLowerCase()
-    )
-    .join('');
+  return str[0].toUpperCase() + str.toLowerCase().slice(1);
 };
 console.log(upperCaseFirstLetter('techMaster'));
 
