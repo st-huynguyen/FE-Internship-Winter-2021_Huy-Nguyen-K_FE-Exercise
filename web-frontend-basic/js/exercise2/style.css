@@ -1,0 +1,68 @@
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  text-align: center;
+  max-width: 640px;
+}
+
+.plan-list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+
+.plan-item {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  width: 50%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.08);
+}
+
+.plan-name {
+  display: block;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  margin: 0px;
+  background-color: #f4f4f4;
+  font-size: 18px;
+}
+
+.plan-content {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.plan-price {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.des-list {
+  list-style: none;
+  padding: 0;
+}
+
+.des-item {
+  font-size: 13px;
+}
+
+.button-plan {
+  margin-top: 15px;
+  padding: 8px;
+  font-family: "Roboto", sans-serif;
+  border-radius: 3px;
+  color: #fff;
+  border: 1px solid #0275d8;
+  background-color: #0275d8;
+}
+
+.btn-outline {
+  color: #0275d8;
+  background-color: transparent;
+}
