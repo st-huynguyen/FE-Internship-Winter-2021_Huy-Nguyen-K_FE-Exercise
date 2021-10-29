@@ -62,12 +62,16 @@ bill.coding();
 // 6. cho 2 mảng dữ liệu số, viết 1 hàm tìm các phần tử cùng xuất hiện ở cả 2 mảng.
 const findSameValue = function (arr1, arr2) {
   const result = [];
+  const obj = {};
   arr1.forEach(function (value) {
-    if (arr2.includes(value)) {
+    obj[value] = true;
+  });
+  arr2.forEach(function (value) {
+    if (obj[value]) {
       result.push(value);
     }
   });
-  return [...new Set(result)];
+  return result;
 };
 console.log(findSameValue([1, 2, 3, 4, 6, 3], [2, 3, 5, 6]));
 
