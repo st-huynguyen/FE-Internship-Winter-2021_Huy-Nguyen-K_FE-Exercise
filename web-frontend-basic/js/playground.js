@@ -71,16 +71,10 @@ const divisibleBy3 = function (str, isEven = false) {
   const filterArr = isEven ? numsArr.filter((item) => item % 2 === 0) : numsArr;
 
   // Replace * and return array of results
-  const index = nums.indexOf('*');
   return filterArr.map(function (item) {
-    nums[index] = item;
-    return nums.join('');
+    return str.replace('*', item);
   });
 };
-
-console.log(divisibleBy3('1*9'));
-console.log(divisibleBy3('125*'));
-console.log(divisibleBy3('1234567890*'));
 
 // --------------------------------------------------
 
@@ -113,7 +107,19 @@ const divisibleBy6 = function (str) {
   }
 };
 
-console.log(divisibleBy6('1*9'));
-console.log(divisibleBy6('12*'));
-console.log(divisibleBy6('125*'));
-console.log(divisibleBy6('1234567890*'));
+const divisibleByNumber = function (dividendNumber, str) {
+  switch (dividendNumber) {
+    case 3:
+      return divisibleBy3(str);
+    case 6:
+      return divisibleBy6(str);
+  }
+};
+
+console.log(divisibleByNumber(3, '1*9'));
+console.log(divisibleByNumber(3, '125*'));
+console.log(divisibleByNumber(3, '1234567890*'));
+console.log(divisibleByNumber(6, '1*9'));
+console.log(divisibleByNumber(6, '12*'));
+console.log(divisibleByNumber(6, '125*'));
+console.log(divisibleByNumber(6, '1234567890*'));
