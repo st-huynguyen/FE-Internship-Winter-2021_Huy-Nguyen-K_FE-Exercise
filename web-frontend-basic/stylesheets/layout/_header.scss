@@ -1,0 +1,44 @@
+header {
+  position: absolute;
+  width: 100%;
+  top: 4rem;
+  z-index: 100;
+  .nav-container {
+    @extend %flex-row-c-btw-i-center;
+  }
+  .navbar {
+    .navbar-logo-img {
+      width: 14rem;
+    }
+  }
+  .nav-list {
+    @extend %flex-row-c-center-i-center;
+    gap: 8rem;
+    .nav-link:link,
+    .nav-link:visited {
+      color: map-get($colors, "primary");
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+  }
+  .nav-actions {
+    .nav-actions-list {
+      @extend %flex-row-c-end-i-center;
+      gap: 2rem;
+    }
+    .btn-icon-img {
+      width: 2rem;
+    }
+  }
+}
+@media only screen and (max-width: map-get($breakpoints, "medium")) {
+  header {
+    top: 0;
+    background-color: map-get($colors, "white");
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    .nav-list {
+      display: none;
+    }
+  }
+}

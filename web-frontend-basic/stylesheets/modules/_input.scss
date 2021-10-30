@@ -1,0 +1,12 @@
+.form-input {
+  font-weight: 700;
+  display: inline-block;
+  padding: 1.4rem 2.6rem;
+  border-radius: 10rem;
+  border: 0;
+}
+@media only screen and (max-width: map-get($breakpoints, "medium")) {
+  .form-input {
+    padding: 1.2rem 1.8rem;
+  }
+}

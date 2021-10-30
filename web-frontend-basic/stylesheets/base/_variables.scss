@@ -1,0 +1,31 @@
+// Fonts
+$font-primary: "Poppins", sans-serif;
+$font-size: (
+  "xxs": 10px,
+  "xs": 12px,
+  "sm": 14px,
+  "md": 16px,
+  "lg": 18px,
+  "xl": 20px,
+  "xxl": 24px,
+);
+// Colors
+$colors: (
+  "primary": #fbb03b,
+  "secondary": #fff3df,
+  "red": #ff0000,
+  "white": #fff,
+  "black": #333,
+  "gray-a": #f6f6f6,
+  "gray-b": #cecece,
+  "gray-c": #c4c4c4,
+  "gray-d": #ababab,
+  "gray-e": #a8a8a8,
+  "gray-f": #808080,
+);
+// Breakpoints
+$breakpoints: (
+  "medium": 767px,
+  "wide": 960px,
+  "large": 1280px,
+);

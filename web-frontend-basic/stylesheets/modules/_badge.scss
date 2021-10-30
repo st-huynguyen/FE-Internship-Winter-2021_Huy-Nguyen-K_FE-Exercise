@@ -1,0 +1,14 @@
+.badge span {
+  color: map-get($colors, "white");
+  font-weight: 600;
+  font-size: 1.2rem;
+  background-color: map-get($colors, "red");
+  padding: 0.6rem 1.2rem;
+  border-radius: 100rem;
+}
+@media only screen and (max-width: map-get($breakpoints, "medium")) {
+  .badge span {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+}

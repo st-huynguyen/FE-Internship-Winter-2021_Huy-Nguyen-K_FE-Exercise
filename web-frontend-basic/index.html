@@ -4,67 +4,96 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-shop</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="grid.css" />
+    <!-- <link rel="stylesheet" href="grid.css" /> -->
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="stylesheets/styles.css" />
   </head>
   <body>
     <!-- Header -->
     <header>
       <div class="container">
-        <div class="navbar">
-          <h1 class="heading-1">
-            <a class="navbar-logo" href="#">
-              <img
-                class="navbar-logo-img"
-                src="./assets/logo.png"
-                alt="E-shop"
-              />
-            </a>
-          </h1>
-        </div>
-        <nav class="nav">
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Men</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Women</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Kids</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="nav-actions">
-          <ul class="nav-actions-list">
-            <li class="nav-actions-item">
-              <a class="btn-icon-link" href="#">
+        <div class="nav-container">
+          <div class="navbar">
+            <h1 class="heading-1">
+              <a class="navbar-logo" href="#">
                 <img
-                  src="./assets/nav-icon-1.png"
-                  alt="Search"
-                  class="btn-icon-img"
+                  class="pc-only navbar-logo-img"
+                  src="./assets/logo.png"
+                  alt="E-shop"
+                />
+                <img
+                  class="sp-only navbar-logo-img"
+                  src="./assets/logo-black.png"
+                  alt="E-shop"
                 />
               </a>
-            </li>
-            <li class="nav-actions-item">
-              <a class="btn-icon-link" href="#">
-                <img
-                  src="./assets/nav-icon-2.png"
-                  alt="Cart"
-                  class="btn-icon-img"
-                />
-              </a>
-            </li>
-            <li class="nav-actions-item">
-              <a class="btn-icon-link" href="#">
-                <img
-                  src="./assets/nav-icon-3.png"
-                  alt="User"
-                  class="btn-icon-img"
-                />
-              </a>
-            </li>
-          </ul>
+            </h1>
+          </div>
+          <nav class="nav">
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Men</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Women</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Kids</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="nav-actions">
+            <ul class="nav-actions-list">
+              <li class="nav-actions-item">
+                <a class="btn-icon-link" href="#">
+                  <img
+                    src="./assets/nav-icon-1.png"
+                    alt="Search"
+                    class="btn-icon-img pc-only"
+                  />
+                  <img
+                    src="./assets/nav-icon-2-black.png"
+                    alt="Cart"
+                    class="btn-icon-img sp-only"
+                  />
+                </a>
+              </li>
+              <li class="nav-actions-item">
+                <a class="btn-icon-link" href="#">
+                  <img
+                    src="./assets/nav-icon-2.png"
+                    alt="Cart"
+                    class="btn-icon-img pc-only"
+                  />
+                  <img
+                    src="./assets/nav-icon-3-black.png"
+                    alt="User"
+                    class="btn-icon-img sp-only"
+                  />
+                </a>
+              </li>
+              <li class="nav-actions-item">
+                <a class="btn-icon-link" href="#">
+                  <img
+                    src="./assets/nav-icon-3.png"
+                    alt="User"
+                    class="btn-icon-img pc-only"
+                  />
+                  <img
+                    src="./assets/nav-icon-4-black.png"
+                    alt="Menu"
+                    class="btn-icon-img sp-only"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </header>
@@ -83,7 +112,7 @@
           <div class="banner-benefit">
             <div class="container">
               <ul class="row">
-                <li class="col-4">
+                <li class="col col-md-4">
                   <div class="card card-banner-benefit">
                     <img
                       class="card-img"
@@ -96,7 +125,7 @@
                     </div>
                   </div>
                 </li>
-                <li class="col-4">
+                <li class="col col-md-4">
                   <div class="card card-banner-benefit">
                     <img
                       class="card-img"
@@ -111,7 +140,7 @@
                     </div>
                   </div>
                 </li>
-                <li class="col-4">
+                <li class="col col-md-4">
                   <div class="card card-banner-benefit">
                     <img
                       class="card-img"
@@ -135,40 +164,40 @@
       <section class="section-collection">
         <div class="container">
           <ul class="row">
-            <li class="col-6">
+            <li class="col col-md-6 col-xs-12">
               <div class="card card-collection">
                 <img
                   class="card-img collection-img"
                   src="./assets/collection-1.jpg"
                   alt="New arrivalsare now in!"
                 />
-                <div class="collection-content">
+                <div class="card-content">
                   <h3 class="card-name">New arrivalsare now in!</h3>
                   <a class="btn btn-white" href="#">Show collection</a>
                 </div>
               </div>
             </li>
-            <li class="col">
+            <li class="col col-md-3 col-xs-6">
               <div class="card card-collection">
                 <img
                   class="card-img collection-img"
                   src="./assets/collection-2.jpg"
                   alt="Basic t-shirts $29,99"
                 />
-                <div class="collection-content">
+                <div class="card-content">
                   <h3 class="card-name">Basic t-shirts $29,99</h3>
                   <a class="btn btn-white" href="#">More details</a>
                 </div>
               </div>
             </li>
-            <li class="col">
+            <li class="col col-md-3 col-xs-6">
               <div class="card card-collection">
                 <img
                   class="card-img collection-img"
                   src="./assets/collection-3.jpg"
                   alt="Sale this summer"
                 />
-                <div class="collection-content">
+                <div class="card-content">
                   <div class="badge"><span>-50%</span></div>
                   <h3 class="card-name">Sale this summer</h3>
                   <a class="btn btn-white" href="#">View all</a>
@@ -183,7 +212,7 @@
         <div class="container">
           <h3 class="section-title">Selected just for you</h3>
           <ul class="row my-10">
-            <li class="col-3">
+            <li class="col col-md-3 col-xs-6">
               <div class="card card-product">
                 <img
                   class="card-img"
@@ -198,7 +227,7 @@
                 <div class="badge"><span>-30%</span></div>
               </div>
             </li>
-            <li class="col-3">
+            <li class="col col-md-3 col-xs-6">
               <div class="card card-product">
                 <img
                   class="card-img"
@@ -209,7 +238,7 @@
                 <span class="price">$119.99</span>
               </div>
             </li>
-            <li class="col-3">
+            <li class="col col-md-3 col-xs-6">
               <div class="card card-product">
                 <img
                   class="card-img"
@@ -220,7 +249,7 @@
                 <span class="price">$79.99</span>
               </div>
             </li>
-            <li class="col-3">
+            <li class="col col-md-3 col-xs-6">
               <div class="card card-product">
                 <img
                   class="card-img"
@@ -238,11 +267,11 @@
         </div>
       </section>
       <!-- Section Why should you choose us? -->
-      <section class="section-benefit py-10">
+      <section class="section-benefit">
         <div class="container">
           <h3 class="section-title text-center">Why should you choose us?</h3>
           <ul class="row my-10">
-            <li class="col-3">
+            <li class="col col-md-3 col-xs-12">
               <div class="card card-benefit">
                 <img
                   class="card-img benefit-icon"
@@ -258,7 +287,7 @@
                 </div>
               </div>
             </li>
-            <li class="col-3">
+            <li class="col col-md-3 col-xs-12">
               <div class="card card-benefit">
                 <img
                   class="card-img benefit-icon"
@@ -274,7 +303,7 @@
                 </div>
               </div>
             </li>
-            <li class="col-3">
+            <li class="col col-md-3 col-xs-12">
               <div class="card card-benefit">
                 <img
                   class="card-img benefit-icon"
@@ -290,7 +319,7 @@
                 </div>
               </div>
             </li>
-            <li class="col-3">
+            <li class="col col-md-3 col-xs-12">
               <div class="card card-benefit">
                 <img
                   class="card-img benefit-icon"
@@ -314,7 +343,7 @@
         <div class="container">
           <h3 class="section-title text-center">Products in today</h3>
           <ul class="row my-10">
-            <li class="col-3">
+            <li class="col col-md-3 col-xs-6">
               <div class="card card-product">
                 <img
                   class="card-img"
@@ -329,7 +358,7 @@
                 <div class="badge"><span>-30%</span></div>
               </div>
             </li>
-            <li class="col-3">
+            <li class="col col-md-3 col-xs-6">
               <div class="card card-product">
                 <img
                   class="card-img"
@@ -340,7 +369,7 @@
                 <span class="price">$119.99</span>
               </div>
             </li>
-            <li class="col-3">
+            <li class="col col-md-3 col-xs-6">
               <div class="card card-product">
                 <img
                   class="card-img"
@@ -351,7 +380,7 @@
                 <span class="price">$79.99</span>
               </div>
             </li>
-            <li class="col-3">
+            <li class="col col-md-3 col-xs-6">
               <div class="card card-product">
                 <img
                   class="card-img"
@@ -366,24 +395,26 @@
         </div>
       </section>
       <!-- Section Newsletter -->
-      <section class="section-newsletter mb-0 py-10">
+      <section class="section-newsletter mb-0">
         <div class="container">
-          <div class="row my-10">
-            <div class="col-6">
-              <p class="section-title">
-                Subscribe to our newsletter andreceive exclusive offers every
-                week
-              </p>
-            </div>
-            <div class="col-6">
-              <form class="form newsletter-form">
-                <input
-                  class="form-input"
-                  type="text"
-                  placeholder="Enter your email"
-                />
-                <button class="btn btn-primary">Subscribe</button>
-              </form>
+          <div class="row">
+            <div class="newsletter-container">
+              <div class="col col-md-6 col-xs-12">
+                <p class="section-title">
+                  Subscribe to our newsletter andreceive exclusive offers every
+                  week
+                </p>
+              </div>
+              <div class="col col-md-6 col-xs-12">
+                <form class="form newsletter-form">
+                  <input
+                    class="form-input"
+                    type="text"
+                    placeholder="Enter your email"
+                  />
+                  <button class="btn btn-primary">Subscribe</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -393,7 +424,7 @@
     <footer>
       <div class="container">
         <div class="row py-10">
-          <div class="col-5">
+          <div class="col col-md-5 col-xs-12">
             <a class="footer-logo" href="#">
               <img
                 class="footer-logo-img"
@@ -455,9 +486,9 @@
               </ul>
             </div>
           </div>
-          <div class="col-7">
+          <div class="col col-md-7 col-xs-12">
             <ul class="row footer-list">
-              <li class="col-4">
+              <li class="col col-md-4 col-xs-12">
                 <h4 class="list-group-title">Shopping online</h4>
                 <ul class="list-group">
                   <li class="list-group-item">
@@ -479,7 +510,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="col-4">
+              <li class="col col-md-4 col-xs-12">
                 <h4 class="list-group-title">Information</h4>
                 <ul class="list-group">
                   <li class="list-group-item">
@@ -499,7 +530,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="col-4">
+              <li class="col col-md-4 col-xs-12">
                 <h4 class="list-group-title">Contact</h4>
                 <ul class="list-group">
                   <li class="list-group-item">

@@ -1,0 +1,130 @@
+.card {
+  &.card-banner-benefit {
+    @extend %flex-row;
+    gap: 2rem;
+    .card-img {
+      width: 3.6rem;
+      height: 3.6rem;
+      border-radius: 1rem;
+    }
+    .card-content {
+      font-size: 1.2rem;
+      color: map-get($colors, "gray-e");
+    }
+  }
+  &.card-product {
+    position: relative;
+    .card-name {
+      font-weight: 300;
+      margin-top: 1.2rem;
+    }
+    .badge {
+      position: absolute;
+      top: 24px;
+      left: 18px;
+    }
+  }
+  &.card-benefit {
+    .card-content {
+      margin: 1rem 0;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: map-get($colors, "gray-f");
+    }
+    .card-img {
+      border-radius: 1rem;
+      margin: 2rem 0;
+    }
+    .benefit-icon {
+      width: 6.8rem;
+    }
+  }
+  &.card-collection {
+    position: relative;
+    .card-content {
+      position: absolute;
+      left: 4rem;
+      right: 4rem;
+      bottom: 53px;
+    }
+    .card-name {
+      color: map-get($colors, "white");
+      font-size: 2.4rem;
+      font-weight: 300;
+      min-height: 9rem;
+    }
+    .card-img {
+      filter: brightness(60%);
+    }
+    .badge {
+      margin-bottom: 2rem;
+    }
+  }
+}
+@media only screen and (max-width: map-get($breakpoints, "wide")) {
+  .card {
+    &.card-collection {
+      position: relative;
+      .card-content {
+        position: absolute;
+        left: 2rem;
+        right: 2rem;
+        bottom: 30px;
+      }
+      .card-name {
+        color: map-get($colors, "white");
+        font-size: 2.4rem;
+        font-weight: 300;
+        min-height: 9rem;
+      }
+      .card-img {
+        filter: brightness(60%);
+      }
+      .badge {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: map-get($breakpoints, "medium")) {
+  .card {
+    &.card-product {
+      margin: 0.5rem auto;
+      .card-name {
+        font-size: 1.2rem;
+        margin-top: 0.2rem;
+      }
+      .badge {
+        top: 10px;
+        left: 9px;
+      }
+    }
+    &.card-benefit {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      margin-top: 1.6rem;
+      .card-content {
+        max-width: 90%;
+        font-size: 1rem;
+        margin: 0.4rem 0;
+      }
+      .benefit-icon {
+        margin: 0;
+      }
+    }
+    &.card-collection {
+      .card-content {
+        left: 16px;
+        bottom: 24px;
+      }
+      .card-name {
+        font-size: 1.4rem;
+        min-height: 5rem;
+      }
+      .badge {
+        margin-bottom: 0.6rem;
+      }
+    }
+  }
+}

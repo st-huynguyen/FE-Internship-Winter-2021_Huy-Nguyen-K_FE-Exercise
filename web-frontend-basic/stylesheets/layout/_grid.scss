@@ -1,0 +1,47 @@
+.container {
+  max-width: 1170px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+.row {
+  @extend %flex-row;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+.row > * {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 10px;
+}
+.col {
+  flex: 1;
+}
+$columns: 12;
+@for $i from 1 through $columns {
+  .col-#{$i} {
+    flex: 0 0 auto;
+    width: calc($i / $columns * 100%);
+  }
+  .col-md-#{$i} {
+    flex: 0 0 auto;
+    width: calc($i / $columns * 100%);
+  }
+}
+@media only screen and (max-width: map-get($breakpoints, "medium")) {
+  .container {
+    margin: 0 14px;
+  }
+  .row {
+    margin: 0 -4px;
+  }
+  .row > * {
+    padding: 0 4px;
+  }
+  $columns: 12;
+  @for $i from 1 through $columns {
+    .col-xs-#{$i} {
+      flex: 0 0 auto;
+      width: calc($i / $columns * 100%);
+    }
+  }
+}
